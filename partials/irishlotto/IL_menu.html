@@ -1,0 +1,17 @@
+<div class="container fn-product-menu">
+    <div class="product-menu-bg">
+        <button class="fn-menu-dropdown-icon" ng-click="menuToggleFn()"></button>
+    </div>
+    <div class="fn-menu-button-container container">
+        <ul class="navbar-nav container" ng-style="menuDisplay">
+            <li ng-repeat="option in navigationOptions">
+                <a ng-href="../irishlottobet/{{option.id}}">
+                    <div class="{{option.cls}} fn-menu-button" ng-class="{ 'fn-menu-button-active': isActive('/irishlottobet/'+option.id)}" alt="{{option.txt}}">
+                        <span class="fn-menu-label">{{option.txt}}</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div style="clear:both;"></div>

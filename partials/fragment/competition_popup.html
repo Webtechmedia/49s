@@ -1,0 +1,49 @@
+<div class="no-internet-overlay" ng-show="showCompetition">
+  <div class="competition-popup" style="position:relative;">
+    <div ng-hide="enteredCompetition">
+      <a ng-click="closePressed()" style="position:absolute;top:10px;right:10px;">Close</a>
+    <p style="font-weight:bold;margin-top:5px">
+    {{competitionTitle}}
+    <p>
+    <div ng-bind-html="competitionContent"></div>
+
+    Please enter your email address
+    <form>
+    <input 	id="emailField"
+            type="email"
+            style="width:100%"
+            placeholder="email@host.com"
+            name="email"
+            ng-model="formData.email"
+            ng-minlength="4"
+            ng-maxlength="70"
+            ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z0-9]+\.[a-z.]{2,5}$/"
+            required >
+
+    </p>
+      <input type="submit" value="Submit" ng-click="submitEmail()">
+      <br>
+      <p style="margin-top:20px">
+        <span ng-show="emailNotFound" style="color:red">Your email could not be found, please</span>
+        <a href="../stayintouch" ng-click="registerClicked()">Register Here</a>
+      </p>
+
+
+
+
+
+  </form>
+  </div>
+  <div ng-show="enteredCompetition" style="padding:40px">
+    <p>
+      Thank You.
+    </p>
+    <p>
+      Your details have been submitted.
+    </p>
+    <p>
+      <a ng-click="closePressed()">Close</a>
+    </p>
+  </div>
+
+</div>

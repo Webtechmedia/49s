@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+      <head>
+              <title>Irish Lotto Lucky Dip</title>
+              <link href="main.css" rel="stylesheet" type="text/css" />
+              <script src="anim.js"></script>
+      </head>
+
+      <body onload="init();" style="overflow:hidden;">
+
+      <div id="load-container" style="width:200px;height:10px;border:1px solid grey;text-align:center;margin:auto;margin-top:240px;">
+        <div id="loading-bar" style="background-color:#1ae418;width:0%;height:100%;">
+        </div>
+      </div>
+
+
+        <div id="animDiv"></div>
+
+        <script src="https://code.createjs.com/easeljs-0.8.0.min.js"></script>
+        <script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
+        <script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
+
+
+        <script>
+
+        function init(){
+
+        assets = new createjs.LoadQueue(false);
+
+      	assetManifest = [
+          	{src:"assets/bugAnim_0.png", id:"bug1"},
+          	{src:"assets/bugAnim_1.png", id:"bug2"},
+          	{src:"assets/bugAnim_2.png", id:"bug3"},
+          	{src:"assets/bugAnim_3.png", id:"bug4"},
+          	{src:"assets/bugAnim_4.png", id:"bug5"},
+          	{src:"assets/button.png", id:"button"},
+            {src:"assets/btn_green.png", id:"btn_green"},
+  			    {src:"assets/clover.png", id:"clover"},
+  		  ];
+
+    		fileCount = 0;
+
+    		assets.addEventListener("fileload", function(){
+
+    			if ( fileCount === assetManifest.length-1 ){
+    				anim = new bug();
+    				anim.init('animDiv');
+            document.getElementById('load-container').style.display = 'none';
+    			}else{
+    				fileCount++;
+            var loaded = ((fileCount+1) / assetManifest.length)*100;
+            document.getElementById('loading-bar').style.width = loaded+'%';
+    			}
+
+    		});
+
+    		assets.loadManifest(assetManifest);
+
+    		}
+
+        </script>
+
+  </body>
+</html>

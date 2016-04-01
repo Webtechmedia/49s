@@ -1,0 +1,96 @@
+<div class="fn-page-container container">
+    <div class ="fn-blue-heading-convex container">
+        <H2 class="fn-section-header">FIND A BETTING SHOP</H2>
+    </div>
+    <div class="fn-section-container">
+      <div id="fn-findabettingshop-search-form">
+          <span>Enter your postcode or town to quickly find your nearest betting shop.</span>
+
+<!-- SEARCH SECTION -->
+          <div class="fn-grey-shape container" ng-hide="searchSection">
+            <div class="fn-section-container" style="padding:10px 40px;">
+              <div class="fn-find-field-left">
+                <label for="postcodeField">Postcode</label>
+                <input id="postcodeField" type="text" style="width:100%" ng-model="address.postcode"  maxlength="10">
+              </div>
+              <div class="fn-find-field-right">
+                <label for="townField">Town</label>
+                <input id="townField" type="text" style="width:100%" ng-model="address.town">
+              </div>
+              <div style="clear:both"></div>
+            </div>
+          </div>
+
+          <div class="fn-blue-button">FIND<a id="fn-find-button" href="#" ng-click="findBookmakers(address)"></a></div>
+      </div>
+
+      <hr id="scroll-point">
+<!-- MAP RESULT -->
+      <div id="fn-findabettingshop-result-map" style="text-align:justify" ng-hide="mapResults">
+        <div class="navbar-nav container" style="vertical-align:middle;">
+          <h3 style="display:inline-block;float:left; line-height:80px;">RESULTS FOR '{{bookmakerSearch | uppercase}}'</h3>
+          <a id="fn-show-list-button" href="#" ng-click="">
+              <div class="fn-blue-button-small" style="display:inline-block; float:right;" ng-click="showList()">SHOW LIST</div>
+          </a>
+        </div>
+           <div style='clear:both'></div>
+          	<div class="fn-map-section" style="background-color:grey">
+				<map id="map-canvas" markers="markers" style="display:block; width: 100%; height:100%;" ></map>
+          	</div>
+      </div>
+      <hr ng-hide="mapResults">
+
+<!-- LIST RESULT -->
+      <div id="fn-findabettingshop-result-list" style="text-align:justify" ng-hide="listResults">
+          <h3 style="display:inline-block;float:left; line-height:80px;">RESULTS FOR '{{bookmakerSearch | uppercase}}'</h3>
+          <a id="fn-show-list-button" href="#" ng-click="">
+              <div class="fn-blue-button-small" style="display:inline-block; float:right;" ng-click="showMap()">SHOW MAP</div>
+          </a>
+           <div style='clear:both'></div>
+
+          <div>
+            <!-- SHOP NAME | ADDRESS | POSTCODE | MAP -->
+            <div class="fn-results-list-header">
+              <ul class="navbar-nav container">
+                <li class="fn-search-heading" style="width:30%;">SHOP NAME</li>
+                <li class="fn-search-heading" style="width:40%;">ADDRESS</li>
+                <li class="fn-search-heading" style="width:20%;">POSTCODE</li>
+                <li class="fn-search-heading" style="width:10%;text-align:center;">MAP</li>
+              </ul>
+              </div>
+              <ul class="fn-results-list">
+                <li ng-repeat="marker in markers">
+                  <ul class="fn-results-list-row navbar-nav container">
+                    <li class="fn-results-list-label">{{marker.title}}</li>
+                    <li class="fn-results-list-label">{{marker.address}}</li>
+                    <li class="fn-results-list-label">{{marker.postcode}}</li>
+                    <li class="fn-results-list-label" style="word-break: normal;"><a href="#" ng-click="openInfoWindow($event, marker)">{{marker.link}}</a></li>
+                  </ul>
+			           </li>
+              </ul>
+          </div>
+      </div>
+      <hr  ng-hide="listResults">
+
+<!-- ERROR RESULT -->
+      <div id="fn-findabettingshop-result-error" style="" ng-hide="noResults" >
+          <h3 style="">RESULTS FOR '{{bookmakerSearch | uppercase}}'</h3>
+          <div style='clear:both'></div>
+          <span>Sorry, there are no results for '{{bookmakerSearch | uppercase}}'. Please enter a different postcode or town name.</span>
+      </div>
+      <hr ng-hide="noResults">
+
+      <div id="fn-findbettingshop-bet-container">
+          <h3>PLACE BETS ONLINE</h3>
+          </br>
+          <p>
+            <span>Unfortunately at this time you can not place a bet through this site. However, all of our Shareholders websites offer bets on all products.</span>
+          </p>
+          <p>
+          <span id="fn-bethere-note">Click one of the links below to proceed to a Shareholder website. Please note, by clicking one of the links you will be leaving the 49s.co.uk website.</span>
+          </p>
+        </br>
+          <div id="fn-bethere-shareholder" ng-controller="FNShareholderController" ng-include src="'partials/fragment/shareholder.html'" />
+      </div>
+    </div>
+</div>

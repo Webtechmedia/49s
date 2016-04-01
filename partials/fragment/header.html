@@ -1,0 +1,19 @@
+<div class="fn-header-container" role="navigation">
+  <div class="container main-header">
+      <ul class="navbar-nav" style="width:100%;">
+        <li ng-repeat="option in navigationOptions" class="fn-header-icon-container">
+          <a ng-href="../{{option.path}}">
+            <div class="{{option.cls}} fn-header-icon"></div>
+          </a>
+        </li>
+      </ul>
+  </div>
+</div>
+
+<div class="header-side-container" style="left:1px;">
+    <div class="fn-header-bg-left"></div>
+</div>
+
+<div class="header-side-container"  style="right:0;">
+    <div class="fn-header-bg-right"></div>
+</div>

@@ -1,0 +1,298 @@
+<div class="container fn-page-container fn-IL">
+	<div class="fn-small-hero-wrapper" >
+	    <div id="smallCarousel" class="carousel slide" data-ride="carousel" >
+	      <!-- Indicators -->
+	      <ul class="carousel-indicators">
+	      </ul>
+	      <div class="carousel-inner" role="listbox" >
+	      </div>
+	    </div>
+		<div class="fn-hero-small container" style="pointer-events:none;" ></div>
+	</div>
+	<section ng-controller="FNILMenuController" class="fn-fn-menu-controller" ng-include src="'partials/irishlotto/IL_menu.html'">
+    </section>
+
+
+
+
+
+
+
+<div id="slider"  >
+ 	<div class="fn-heading-concave container" style="vertical-align: middle;">
+			<h2 class="fn-section-header">PREVIOUS RESULTS</h2>
+            <div class="container fn-accent-text" style="text-align:center;margin-bottom:20px;width:100%;vertical-align: middle;">
+                <div class="month-controls clearfix">
+                	<div class="middle-coontrols">
+	             		<div class="fn-dropdown fn-date-dropdown-month">
+	      					<select class="fn-dropdown-select" name="month" id="month"  >
+	                        	<option value="1">January</option>
+	                        	<option value="2">February</option>
+	                        	<option value="3">March</option>
+	                        	<option value="4">April</option>
+	                        	<option value="5">May</option>
+	                        	<option value="6">June</option>
+	                        	<option value="7">July</option>
+	                        	<option value="8">August</option>
+	                        	<option value="9">September</option>
+	                        	<option value="10">October</option>
+	                        	<option value="11">November</option>
+	                        	<option value="12">December</option>
+	                        </select>
+	                    </div>
+	                    <div class="fn-dropdown fn-date-dropdown-year">
+	                        <select class="fn-dropdown-select" name="year" id="year"  >
+	                        </select>
+	                    </div>
+                	</div>
+	                <div class="fn-change-year-btn-left" >
+	                    <a href="" id="prevMonthClick">
+	                    	<img src="../../img/icons/ic_arrow_white.png" class="left-arrow-icon" >
+	                        <div class="month-controls-circle mcc-green">
+	                        </div>
+	                        <div id="previous-month-switch" class="month-controls-name">January 2015</div>
+	                    </a>
+	                </div>
+	                <div class="fn-change-year-btn-right" style="">
+	                    <a href="" id="nextMonthClick">
+	                        <div id="next-month-switch" class="month-controls-name">March 2015</div>
+	                        <div class="month-controls-circle mcc-green">
+	                        </div>
+	                        <img src="../../img/icons/ic_arrow_white.png" class="right-arrow-icon" >
+	                    </a>
+	                </div>
+                </div>
+            </div>
+
+
+
+            <div id="irish_lotto_controlls" class="days-controls">
+	             <div class="days-holder">
+	                <ul id="days-list-ilb">
+	                </ul>
+	            </div>
+            </div>
+
+            <div id="lottery-results" class="clearfix" style="background:#0b0096" >
+                <div class="fn-results-top-arc"></div>
+                <div class="results-container">
+                	<img src="../../img/icons/ajax_loader.gif" class="fn-loading-spinner" style="display:none;" id="main-spinner"/>
+					<div class="resoults-middle-container">
+						<a href="#" ng-click="toggleDrawOrder()" class="fn-draw-order">{{drawSorted ? "Show in draw order" : "Show in numeric order"}}</a>
+	                    <div class="resoults-ball-draw">
+	                        <div class="condensed-bold fn-results-heading" style="color:white;">
+	                            MAIN DRAW - <span class="fn-accent-text" id="main_draw"></span>
+	                        </div>
+	                        <div class="fn-6-balls" ng-show="draw1Visible">
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="mb1">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="mb2">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="mb3">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="mb4">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="mb5">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="mb6">
+	                                </div>
+																</div>
+	                            </div>
+	                        </div>
+	                        <div class="fn-ball-wrapper fn-booster-container"  ng-show="draw1Visible">
+														<div class="fn-outline-ball">
+	                            <div class="fn-ball-green" id="mbb">
+	                            </div>
+														</div>
+	                            <img src="../../img/balls/bonus_marker.png" class="fn-bonus-marker">
+	                        </div>
+													<div class='no-results-for-num-draw' ng-hide="draw1Visible"><h1>No Results Available</h1></div>
+	                    </div>
+
+	                    <div class="resoults-ball-draw">
+	                        <div class="condensed-bold fn-results-heading" style="color:white;">
+	                            2ND DRAW - <span class="fn-accent-text" id="second_draw"></span>
+	                        </div>
+	                        <div class="fn-6-balls" ng-show="draw2Visible">
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="sb1">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="sb2">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="sb3">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="sb4">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="sb5">
+		                            </div>
+															</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="sb6">
+	                                </div>
+																</div>
+	                            </div>
+	                        </div>
+	                        <div class="fn-ball-wrapper fn-booster-container"  ng-show="draw2Visible">
+														<div class="fn-outline-ball">
+	                            <div class="fn-ball-green" id="sbb">
+	                            </div>
+														</div>
+	                            <img src="../../img/balls/bonus_marker.png" class="fn-bonus-marker">
+	                        </div>
+													<div class='no-results-for-num-draw' ng-hide="draw2Visible"><h1>No Results Available</h1></div>
+	                    </div>
+
+	                    <div class="resoults-ball-draw">
+	                        <div class="condensed-bold fn-results-heading" style="color:white;">
+	                            3RD DRAW - <span class="fn-accent-text" id="third_draw"></span>
+	                        </div>
+	                        <div class="fn-6-balls" ng-show="draw3Visible">
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="tb1">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="tb2">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="tb3">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="tb4">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="tb5">
+		                            </div>
+															</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="tb6">
+	                                </div>
+																</div>
+	                            </div>
+	                        </div>
+	                        <div class="fn-ball-wrapper fn-booster-container" ng-show="draw3Visible">
+														<div class="fn-outline-ball">
+	                            <div class="fn-ball-green" id="tbb">
+	                            </div>
+														</div>
+	                            <img src="../../img/balls/bonus_marker.png" class="fn-bonus-marker">
+	                        </div>
+													<div class='no-results-for-num-draw' ng-hide="draw3Visible"><h1>No Results Available</h1></div>
+	                    </div>
+						<div id="ilb-next-event" class="condensed-bold fn-results-heading" style="color:white;text-align:center;padding:40px 0;">
+								NEXT SCHEDULED EVENT - <span class="fn-accent-text" id="ilb-next-event-time"></span>
+						</div>
+
+                    </div>
+                   <div class="results-prev-day-btn">
+                        <a href="" id="previous-day" >
+                            <img src="../../img/btn/ic_arrow_circle_left.png">
+	                        <span class="prev-day-label">
+	                            Previous<br>Day<br>
+	                                <span class="fn-accent-text" id="previous-day-button">
+	                                Sun 28th
+	                                </span>
+	                        </span>
+                        </a>
+                    </div>
+                    <div  class="results-next-day-btn">
+                        <a href="" id="next-day">
+                            <img src="../../img/btn/ic_arrow_circle_right.png">
+                        <span class="next-day-label">
+                            Next<br>Day<br>
+                                <span class="fn-accent-text" id="next-day-button">
+                                Tue 30th
+                                </span>
+                        </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="fn-results-bottom-arc"></div>
+            </div>
+
+
+            <div id="check-numbers" style="padding:20px">
+							<a name="check-numbers"></a>
+                <h3>CHECK MY NUMBERS</h3>
+                <div style="text-align:center;">
+                    Enter your numbers
+                    <div style="display:inline-block;margin:0 10px;">
+                        <input type="text" class="fn-check-num-field" id="check_nb_1" ng-model="check_number_1" >
+                        <input type="text" class="fn-check-num-field" id="check_nb_2" ng-model="check_number_2" >
+                        <input type="text" class="fn-check-num-field" id="check_nb_3" ng-model="check_number_3" >
+                        <input type="text" class="fn-check-num-field" id="check_nb_4" ng-model="check_number_4" >
+                        <input type="text" class="fn-check-num-field" id="check_nb_5" ng-model="check_number_5" >
+                    </div>
+                    <div id="clear_num_btn" class="fn-green-button" style="display:inline-block;" ng-click="clearNumbers()">CLEAR NUMBERS</div>
+                </div>
+
+				<div class="fn-white-bottom-arc"></div>
+            </div>
+
+
+		</div>
+
+
+
+</div>
+
+
+
+
+
+</div>

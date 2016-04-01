@@ -1,0 +1,78 @@
+<div class="container fn-page-container fn-VGR">
+	<div class="fn-small-hero-wrapper" >
+	    <div id="smallCarousel" class="carousel slide" data-ride="carousel" >
+	      <!-- Indicators -->
+	      <ul class="carousel-indicators">
+	      </ul>
+	      <div class="carousel-inner" role="listbox" >
+	      </div>
+	    </div>
+		<div class="fn-hero-small container" style="pointer-events:none;" ></div>
+	</div>
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
+	            <h4 class="modal-title" id="modalLabel">HOW TO PLAY</h4>
+	            </div>
+				<video id="how_to_play_video" class="video-js vjs-default-skin"  controls preload="none" width="auto" height="auto" style="width:100%"
+			        data-setup="{}">
+			    	<source src="/uploads/videos/ILB_how_to_play_main_10.mp4" type='video/mp4' />
+			    	<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+			  	</video>
+	    	</div>
+	  	</div>
+	</div>
+    <section ng-controller="FNVGRMenuController" class="fn-fn-menu-controller" ng-include src="'partials/greyhoundracing/VGR_menu.html'">
+    </section>
+
+        <div class ="fn-heading-concave container">
+            <div class="fn-results-title-container">
+                <H2 class="fn-results-title">LATEST RESULTS - <span style="font-size:0.8em;" id="activeDate"></span></H2>
+										<div class="fn-header-share" ng-show="showShare">
+				                Share the results
+												<div id="share-tw">
+												</div>
+				                <div id="share-mail" class="fn-mail-icon">
+				                </div>
+				            </div>
+            </div>
+        </div>
+       <div id="lottery-results" class="clearfix" style="background:#924130;  margin-top: 20px; margin-bottom:30px;" >
+            <div class="fn-top-arc"></div>
+            <div class="results-container">
+            <img src="../../img/icons/ajax_loader.gif" class="fn-loading-spinner" style="display:none;" id="main-spinner"/>
+			<div class="resoults-middle-container">
+                <div class="segmented-control">
+					<ul id="location-list">
+					</ul>
+               	</div>
+	            <div class="fn-racing-results">
+					<ul class="tab-content" id="location-content">
+					</ul>
+                </div>
+           </div>
+           <div class="results-prev-day-btn">
+               <a id="previous-day" data-toggle="tab" href="#draw_pagination_1">
+                   <img src="../../img/btn/ic_arrow_circle_left.png">
+                <span class="prev-day-label">
+                    Previous<br>Day<br>
+                    <span class="fn-accent-text" id="previous-day-button"></span>
+                </span>
+               </a>
+           </div>
+           <div  class="results-next-day-btn">
+               <a id="next-day" data-toggle="tab" href="#draw_pagination_1">
+                   <img src="../../img/btn/ic_arrow_circle_right.png">
+               <span class="next-day-label">
+                   Next<br>Day<br>
+                   <span class="fn-accent-text" id="next-day-button"></span>
+               </span>
+               </a>
+           </div>
+        </div>
+        <div class="fn-bottom-arc"></div>
+    </div>
+        <div ng-include src="'partials/promosection.html'"></div>
+</div>

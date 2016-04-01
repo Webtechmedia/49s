@@ -1,0 +1,31 @@
+<div class="fn-help container">
+    <div class ="fn-blue-heading-convex container">
+        <H2 class="fn-section-header">HELP</H2>
+    </div>
+
+    <div class="fn-section-container">
+    	<h3>FREQUENTLY ASKED QUESTIONS</h3>
+
+    	<ul class="fn-faq-list">
+            <a href="" ng-repeat-start="faq in FAQs track by $index" ng-click="showIndex($index)">
+                <li class="fn-faq-question-header" ng-class="{'fn-faq-question-header-selected': selectedIndex==$index}">
+                    {{faq.question}}
+                </li>
+            </a>
+            <div class="fn-faq-answer" ng-bind-html="faq.answer" ng-show="selectedIndex==$index" ng-repeat-end>
+            </div>
+
+    	</ul>
+
+    	<hr>
+
+
+
+        <button class="fn-blue-button" id="fn-faq-morehelp-button">
+            <a href="" ng-href="../contact">NEED MORE HELP?</a>
+        </button>
+
+
+
+    </div>
+</div>

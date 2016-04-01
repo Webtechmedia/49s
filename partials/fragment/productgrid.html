@@ -1,0 +1,23 @@
+<div class="fn-product-grid container">
+  <ul class="navbar-nav product-grid-nav">
+    <li ng-repeat="option in navigationOptions" class="fn-product-grid-item">
+      <a ng-href="../{{option.path}}" alt="{{option.title}}">
+        <div class="{{option.gridCls}}">
+          <div class="fn-product-grid-title {{option.titleCls}}"></div>
+          <div class="fn-product-grid-bg {{option.bgCls}}"></div>
+          <div class="fn-product-grid-footer" style="display:table">
+            <div style="display:table-cell; vertical-align: middle;">
+              <div style="width:20%;float:left;">
+                <img src="../../img/icons/ic_home_timer.png">
+              </div>
+              <div style="width:75%;float:left;" ng-bind-html="scheduledEvents[option.id]">
+                <!-- <br/>
+                {{timeForEvent(option.id)}} -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

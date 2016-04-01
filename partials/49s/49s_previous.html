@@ -1,0 +1,146 @@
+<div class="container fn-page-container fn-49s">
+	<div class="fn-small-hero-wrapper" >
+	    <div id="smallCarousel" class="carousel slide" data-ride="carousel" >
+	      <!-- Indicators -->
+	      <ul class="carousel-indicators">
+	      </ul>
+	      <div class="carousel-inner" role="listbox" >
+	      </div>
+	    </div>
+		<div class="fn-hero-small container" style="pointer-events:none;" ></div>
+	</div>
+	<section ng-controller="FNFNMenuController" class="fn-fn-menu-controller" ng-include src="'partials/49s/49s_menu.html'">
+    </section>
+	<div id="slider">
+	 	<div class="fn-heading-concave container" style="vertical-align: middle;">
+				<h2 class="fn-section-header">PREVIOUS RESULTS</h2>
+	            <div class="container fn-accent-text" style="text-align:center;margin-bottom:20px;width:100%;vertical-align: middle;">
+	                <div class="month-controls clearfix">
+	                	<div class="middle-coontrols">
+		             		<div class="fn-dropdown fn-date-dropdown-month">
+		      					<select class="fn-dropdown-select" name="month" id="month"  >
+		                        	<option value="1">January</option>
+		                        	<option value="2">February</option>
+		                        	<option value="3">March</option>
+		                        	<option value="4">April</option>
+		                        	<option value="5">May</option>
+		                        	<option value="6">June</option>
+		                        	<option value="7">July</option>
+		                        	<option value="8">August</option>
+		                        	<option value="9">September</option>
+		                        	<option value="10">October</option>
+		                        	<option value="11">November</option>
+		                        	<option value="12">December</option>
+		                        </select>
+		                    </div>
+		                    <div class="fn-dropdown fn-date-dropdown-year">
+		                        <select class="fn-dropdown-select" name="year" id="year"  >
+		                        </select>
+		                    </div>
+	                	</div>
+		                <div class="fn-change-year-btn-left" >
+		                    <a href="" id="prevMonthClick">
+		                    	<img src="../../img/icons/ic_arrow_white.png" class="left-arrow-icon" >
+		                        <div class="month-controls-circle mcc-orange">
+		                        </div>
+		                        <div id="previous-month-switch" class="month-controls-name"></div>
+		                    </a>
+		                </div>
+		                <div class="fn-change-year-btn-right" style="">
+		                    <a href="" id="nextMonthClick">
+		                        <div id="next-month-switch" class="month-controls-name"></div>
+		                        <div class="month-controls-circle mcc-orange">
+		                        </div>
+		                        <img src="../../img/icons/ic_arrow_white.png" class="right-arrow-icon" >
+		                    </a>
+		                </div>
+	                </div>
+	            </div>
+	            <div class="days-controls">
+		             <div class="days-holder">
+		                <ul id="days-list-49s">
+		                </ul>
+		            </div>
+	            </div>
+	            <div id="lottery-results" class="clearfix" style="background:#22397f;" >
+	                <div class="fn-results-top-arc"></div>
+	                <div class="results-container">
+	                	<img src="../../img/icons/ajax_loader.gif" class="fn-loading-spinner" style="display:none;" id="main-spinner"/>
+						<div class="resoults-middle-container">
+							<a href="#" ng-click="toggleDrawOrder()" class="fn-draw-order">{{drawSorted ? "Show in draw order" : "Show in numeric order"}}</a>
+
+							<div class="resoults-ball-draw" ng-repeat="draw in draws">
+											<div class="condensed-bold fn-results-heading" style="color:white;">
+														{{draw.drawName}} - <span class="fn-accent-text" id="lunchtime">{{draw.time}}</span>
+												</div>
+
+												<div ng-show="draw.status">
+												<div class="fn-6-balls">
+
+													<div class="fn-ball-wrapper ng-scope" ng-repeat="num in draw.displayedNumbers track by $index">
+														<div class="fn-outline-ball">
+															<div class="fn-ball-{{getBallColor(num)}} fn-ball-nb-{{num}}" id="lb1">
+																{{num}}
+															</div>
+														</div>
+													</div>
+
+												</div>
+												<div class="fn-ball-wrapper fn-booster-container" ng-show="draw.booster">
+													<div class="fn-outline-ball">
+														<div class="fn-ball-{{getBallColor(draw.booster)}} fn-ball-nb-{{draw.booster}}" id="lbb">
+															{{draw.booster}}
+														</div>
+													</div>
+														<img src="../../img/balls/booster.png" class="fn-booster">
+												</div>
+											</div>
+											<div class='no-results-for-num-draw' ng-hide="draw.status"><h1>No Results Available</h1></div>
+											</div>
+
+							<div id="next-event" class="condensed-bold fn-results-heading" style="color:white;text-align:center;padding:40px 0;">
+								NEXT SCHEDULED EVENT - <span class="fn-accent-text" id="next-event-time">{{nextDrawTime}}</span>
+							</div>
+	                    </div>
+	                   <div class="results-prev-day-btn">
+	                        <a href="" id="previous-day" >
+	                            <img src="../../img/btn/ic_arrow_circle_left.png">
+		                        <span class="prev-day-label">
+		                            Previous<br>Day<br>
+		                                <span class="fn-accent-text" id="previous-day-button">
+		                                </span>
+		                        </span>
+	                        </a>
+	                    </div>
+	                    <div  class="results-next-day-btn">
+	                        <a href="" id="next-day">
+	                            <img src="../../img/btn/ic_arrow_circle_right.png">
+	                        <span class="next-day-label">
+	                            Next<br>Day<br>
+	                                <span class="fn-accent-text" id="next-day-button">
+	                                </span>
+	                        </span>
+	                        </a>
+	                    </div>
+	                </div>
+	                <div class="fn-results-bottom-arc"></div>
+	            </div>
+	            <div id="check-numbers" style="padding:20px">
+								<a name="check-numbers"></a>
+	                <h3>CHECK MY NUMBERS</h3>
+	                <div style="text-align:center;">
+	                    Enter your numbers
+	                    <div style="display:inline-block;margin:0 10px;">
+	                        <input type="text" class="fn-check-num-field" id="check_nb_1" ng-model="check_number_1">
+	                        <input type="text" class="fn-check-num-field" id="check_nb_2" ng-model="check_number_2" >
+	                        <input type="text" class="fn-check-num-field" id="check_nb_3" ng-model="check_number_3" >
+	                        <input type="text" class="fn-check-num-field" id="check_nb_4" ng-model="check_number_4" >
+	                        <input type="text" class="fn-check-num-field" id="check_nb_5" ng-model="check_number_5" >
+	                    </div>
+	                    <div id="clear_num_btn" class="fn-orange-button" style="display:inline-block;" ng-click="clearNumbers()">CLEAR NUMBERS</div>
+	                </div>
+					<div class="fn-white-bottom-arc"></div>
+	            </div>
+			</div>
+	</div>
+</div>

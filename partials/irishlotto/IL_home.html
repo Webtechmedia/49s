@@ -1,0 +1,309 @@
+<div class="container fn-page-container fn-IL">
+	<div class="fn-small-hero-wrapper" >
+	    <div id="smallCarousel" class="carousel slide" data-ride="carousel" >
+	      <!-- Indicators -->
+	      <ul class="carousel-indicators">
+	      </ul>
+	      <div class="carousel-inner" role="listbox" >
+	      </div>
+	    </div>
+		<div class="fn-hero-small container" style="pointer-events:none;" ></div>
+	</div>
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
+	            <h4 class="modal-title" id="modalLabel">HOW TO PLAY</h4>
+	            </div>
+				<video id="how_to_play_video" class="video-js vjs-default-skin"  controls preload="none" width="auto" height="auto" style="width:100%"
+			        data-setup="{}">
+			    	<source src="/uploads/videos/ILB_how_to_play_main_10.mp4" type='video/mp4' />
+			    	<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+			  	</video>
+	    	</div>
+	  	</div>
+	</div>
+    <section ng-controller="FNILMenuController" class="fn-fn-menu-controller" ng-include src="'partials/irishlotto/IL_menu.html'">
+    </section>
+
+
+
+        <div class ="fn-heading-concave container">
+            <div class="fn-results-title-container">
+                <H2 class="fn-results-title">LATEST RESULTS - <span style="font-size:0.8em;" id="activeDate"></span></H2>
+                <div class="fn-header-share" ng-show="showShare">
+                    Share the results
+										<div id="share-tw">
+										</div>
+                    <div id="share-mail" class="fn-mail-icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+       <div id="lottery-results" class="clearfix" style="background:#0b0096;  margin-top: 20px;margin-bottom:30px;" >
+            <div class="fn-top-arc"></div>
+                <div class="results-container">
+                	<img src="../../img/icons/ajax_loader.gif" class="fn-loading-spinner" style="display:none;" id="main-spinner"/>
+					<div class="resoults-middle-container">
+						<a href="#" ng-click="toggleDrawOrder()" class="fn-draw-order">{{drawSorted ? "Show in draw order" : "Show in numeric order"}}</a>
+	                    <div class="resoults-ball-draw">
+	                        <div class="condensed-bold fn-results-heading" style="color:white;">
+	                            MAIN DRAW - <span class="fn-accent-text" id="main_draw"></span>
+	                        </div>
+	                        <div class="fn-6-balls"  ng-show="draw1Visible">
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="mb1">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="mb2">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="mb3">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="mb4">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="mb5">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="mb6">
+	                                </div>
+																</div>
+	                            </div>
+	                        </div>
+	                        <div class="fn-ball-wrapper fn-booster-container"  ng-show="draw1Visible">
+														<div class="fn-outline-ball">
+	                            <div class="fn-ball-green" id="mbb">
+	                            </div>
+														</div>
+	                            <img src="../../img/balls/bonus_marker.png" class="fn-bonus-marker">
+	                        </div>
+													<div class='no-results-for-num-draw' ng-hide="draw1Visible"><h1>No Results Available</h1></div>
+	                    </div>
+
+	                    <div class="resoults-ball-draw">
+	                        <div class="condensed-bold fn-results-heading" style="color:white;">
+	                            2ND DRAW - <span class="fn-accent-text" id="second_draw"></span>
+	                        </div>
+	                        <div class="fn-6-balls" ng-show="draw2Visible">
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="sb1">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="sb2">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="sb3">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="sb4">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="sb5">
+		                            </div>
+															</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="sb6">
+	                                </div>
+																</div>
+	                            </div>
+	                        </div>
+	                        <div class="fn-ball-wrapper fn-booster-container" ng-show="draw2Visible">
+														<div class="fn-outline-ball">
+	                            <div class="fn-ball-green" id="sbb">
+	                            </div>
+														</div>
+	                            <img src="../../img/balls/bonus_marker.png" class="fn-bonus-marker">
+	                        </div>
+													<div class='no-results-for-num-draw' ng-hide="draw2Visible"><h1>No Results Available</h1></div>
+	                    </div>
+
+	                    <div class="resoults-ball-draw">
+	                        <div class="condensed-bold fn-results-heading" style="color:white;">
+	                            3RD DRAW - <span class="fn-accent-text" id="third_draw"></span>
+	                        </div>
+	                        <div class="fn-6-balls" ng-show="draw3Visible">
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="tb1">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="tb2">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="tb3">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="tb4">
+	                                </div>
+																</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="tb5">
+		                            </div>
+															</div>
+	                            </div>
+	                            <div class="fn-ball-wrapper ng-scope">
+																<div class="fn-outline-ball">
+	                                <div class="fn-ball-green" id="tb6">
+	                                </div>
+																</div>
+	                            </div>
+	                        </div>
+	                        <div class="fn-ball-wrapper fn-booster-container" ng-show="draw3Visible">
+														<div class="fn-outline-ball">
+	                            <div class="fn-ball-green" id="tbb">
+	                            </div>
+														</div>
+	                            <img src="../../img/balls/bonus_marker.png" class="fn-bonus-marker">
+	                        </div>
+													<div class='no-results-for-num-draw' ng-hide="draw3Visible"><h1>No Results Available</h1></div>
+	                    </div>
+	                    <div id="ilb-next-event" class="condensed-bold fn-results-heading" style="color:white;text-align:center;padding:40px 0;">
+								NEXT SCHEDULED EVENT - <span class="fn-accent-text" id="ilb-next-event-time"></span>
+						</div>
+                    </div>
+                   <div class="results-prev-day-btn">
+                        <a href="" id="previous-day" >
+                            <img src="../../img/btn/ic_arrow_circle_left.png">
+	                        <span class="prev-day-label">
+	                            Previous<br>Day<br>
+	                                <span class="fn-accent-text" id="previous-day-button">
+	                                Sun 28th
+	                                </span>
+	                        </span>
+                        </a>
+                    </div>
+                    <div  class="results-next-day-btn">
+                        <a href="" id="next-day">
+                            <img src="../../img/btn/ic_arrow_circle_right.png">
+                        <span class="next-day-label">
+                            Next<br>Day<br>
+                                <span class="fn-accent-text" id="next-day-button">
+                                Tue 30th
+                                </span>
+                        </span>
+                        </a>
+                    </div>
+                </div>
+            <div class="fn-bottom-arc"></div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="fn-section-container">
+        <h3>HOT & COLD NUMBERS</h3>
+        The 3 hottest and coldest numbers for Irish Lotto Bet are based on results over the last 4 weeks. Find more statistics on <a href="../thefount">The Fount</a> page.
+
+        <div style="clear:both;margin-bottom:30px;">
+					<a href="#" ng-href="../irishlottobet/hot-cold">
+            <div class="fn-home-hot-cold">
+                <div class="fn-hero-wrapper">
+                    <div class="fn-hero container">
+                        <div class="fn-49-hot">
+                            <img src="../../img/header/title_hot_balls.png" alt="hot balls">
+
+                            <div class="fn-hot-cold-container">
+
+                                <div ng-repeat="ball in hotBalls track by $index"  class="fn-hot-cold-ball-label">
+                                    <div class="fn-hot-ball">
+                                        <div class="fn-ball-irish">
+                                            {{ball.number}}
+                                        </div>
+                                    </div>
+                                    drawn
+                                    <br/>
+                                    <strong>{{ball.times}} times</strong>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+				</a>
+				<a href="#" ng-href="../irishlottobet/hot-cold">
+            <div class="fn-home-hot-cold">
+                <div class="fn-hero-wrapper">
+                    <div class="fn-hero container">
+                        <div class="fn-49-cold">
+                            <img src="../../img/header/title_cold_balls.png" alt="cold balls">
+                            <div class="fn-hot-cold-container">
+
+                                <div ng-repeat="ball in coldBalls track by $index"  class="fn-hot-cold-ball-label">
+                                    <div class="fn-cold-ball">
+                                        <div class="fn-ball-irish">
+                                            {{ball.number}}
+                                        </div>
+                                    </div>
+                                    drawn
+                                    <br/>
+                                    <strong>{{ball.times}} times</strong>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+					</a>
+            <div style="clear:both;margin-top:10px;">
+                <a href="#" ng-href="../irishlottobet/hot-cold">View a breakdown of all balls drawn to date.</a>
+            </div>
+        </div>
+            <div ng-include src="'partials/promosection.html'"></div>
+    </div>
+</div>

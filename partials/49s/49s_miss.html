@@ -1,0 +1,363 @@
+<div class="container fn-page-container fn-49s">
+	<div class="fn-small-hero-wrapper" >
+	    <div id="smallCarousel" class="carousel slide" data-ride="carousel" >
+	      
+          <!-- Indicators -->
+	      <ul class="carousel-indicators">
+         
+	      </ul>
+	      <div class="carousel-inner" role="listbox" >
+          <div class="item active"><img class="first-slide" src="../admin/uploads_assets/miss_smiley.jpg" alt="49s Miss Smiley"></div>
+	      </div>
+	    </div>
+		<div class="fn-hero-small container" style="pointer-events:none;" ></div>
+	</div>
+
+    <section ng-controller="FNFNMenuController" ng-include src="'partials/49s/49s_menu.html'">
+    </section>
+
+    <div class ="fn-heading-concave container">
+        <H2 class="fn-section-header" style="padding-top:10px;">MISS SMILEY - STAFF COMPETITION</H2>
+    </div>
+
+    <div class="fn-section-container">
+
+        <div>
+            <form name="miss_smiley" ng-submit="submitForm(miss_smiley.$valid)"  method="post" novalidate ng-hide="misssmileyElements">
+
+
+		<div class="fn-grey-shape container">
+			<div class="fn-section-container fn-register-form">
+				
+				<hr>
+				
+                
+                 <div class="fn-register-form-section" style="float:left;">
+                <!-- shop name shop number -->
+                
+					<div class="fn-register-field-section">
+						<label for="fornameField">Shop Name*</label>
+						<!--<input 	autofocus
+								id="shopnameField"
+								type="text"
+								style="width:100%"
+								placeholder="Shop Name"
+								name="shopname"
+                                ng-model="misssmiley.shopname"
+								value="register.name"
+								ng-minlength=2
+	        					ng-maxlength=70
+	        					ng-required="true"
+								required >-->
+                         
+                         <select class="fn-dropdown-select" tabindex="1" name="shopname"  id="shopnameField"  style="width:100%; background-color:#FFF !important; border: 2px solid #adadad;"
+					            ng-model="misssmiley.shopname" ng-options="nameitem.B_CompanyName for nameitem in Bname"
+					            required>
+                                
+                                </select>
+                                <small class="error" ng-show="submitted && miss_smiley.shopname.$error.required">Shop Name is required.</small>
+					  
+					    
+					</div>
+                  
+                    
+                    
+                <!-- end shop name shop number -->
+                <!-- shop manager are manager name -->
+				
+					<div class="fn-register-field-section">
+						<label for="surnameField">Shop Number*</label>
+						<input
+								id="shopnumberField"
+								type="text" tabindex="2"
+								style="width:100%"
+								placeholder="Shop Number"
+								name="shopnumber"
+								ng-model="misssmiley.shopnumber"
+								value="misssmiley.shopnumber"
+								ng-minlength=2
+	        					ng-maxlength=70
+	        					ng-required="true"
+								required >
+					    <small class="error" ng-show="submitted && miss_smiley.shopnumber.$error.required">Shop number is required.</small>
+					    
+					</div>
+                    
+                    
+                    
+				<!-- end shop manager area manager name -->
+                <!-- email address -->
+				
+					<div class="fn-register-field-section">
+						<label for="ageField">Shop Manager Full Name*</label>
+						<input 	id="managernameField"
+								type="text" tabindex="3"
+								style="width:100%"
+								placeholder="Manager Name"
+								name="managername"
+								ng-model="misssmiley.managername"
+								value="misssmiley.managername"
+	        					ng-required="true"
+								required >
+						
+						<small class="error" ng-show="submitted && miss_smiley.managername.$error.required">Your Shop manager full name is required.</small>
+					   
+					</div>
+                    
+                    <!-- end email address -->
+				<!-- shop addrrss -->
+				
+                <!-- end shop address -->
+                <!-- shop addrrss 2 -->
+               
+					<div class="fn-register-field-section">
+						<label for="areamanagerField">Area Manager Full Name*</label>
+						<input 	id="areamanagerField"
+								type="text" tabindex="4"
+								style="width:100%"
+								placeholder="Area Manager Name"
+								name="areamanager"
+								ng-model="misssmiley.areamanager"
+								value="misssmiley.areamanager"
+	        					ng-required="true"
+								required >
+						
+						<small class="error" ng-show="submitted && miss_smiley.areamanager.$error.required">Area manager full name is required.</small>
+					   
+					
+				</div>
+                <!-- end shop addrrss -->
+                 <!-- shop addrrss 3 -->
+                
+                <!-- end shop addrrss -->
+                <!-- post code  -->
+               
+					<div class="fn-register-field-section">
+						<label for="emailField">Email Address*</label>
+						<input 	id="emailField"
+								type="text" tabindex="5"
+								style="width:100%"
+								placeholder="Email Address"
+								name="emailaddress"
+								ng-model="misssmiley.emailaddress"
+								value="misssmiley.emailaddress"
+	        					ng-required="true"
+								required >
+						
+						<small class="error" ng-show="submitted && miss_smiley.emailaddress.$error.required">Your Email address is required.</small>
+					   
+					
+                    </div>
+                <!-- end post code  -->
+                <!-- phone number  -->
+				</div>
+				<!-- phone number  -->
+<div class="fn-register-form-section" style="float:right;">
+
+					<div class="fn-register-field-section">
+						<label for="shopaddress1Field">Shop - 1st Line Address*</label>
+						<input 	id="shopaddress1Field"
+								type="text" tabindex="6"
+								style="width:100%"
+								placeholder="Shop - 1st Line Address"
+								name="shopaddress1"
+								ng-model="misssmiley.shopaddress1"
+	        					ng-maxlength="70"
+								required >
+						<small class="error" ng-show="submitted && miss_smiley.shopaddress1.$error.required">Address line is required.</small>
+					    <small class="error" ng-show="miss_smiley.shopaddress1.$error.maxlength">Address line 1 is to long, max 70 characters allowed.</small>
+					</div>
+				
+
+
+					<div class="fn-register-field-section">
+						<label for="shopaddress1Field">Shop - Town*</label>
+						<input 	id="shopaddress1Field"
+								type="text" tabindex="7"
+								style="width:100%"
+								placeholder="Shop - Town"
+								name="shopaddress2"
+								ng-model="misssmiley.shopaddress2" required >
+                                <small class="error" ng-show="submitted && miss_smiley.shopaddress2.$error.required">Shop town is required.</small>
+						
+					</div>
+				
+                
+
+
+					<div class="fn-register-field-section">
+						<label for="shopaddress1Field">Shop - County*</label>
+						<input 	id="shopaddress1Field"
+								type="text" tabindex="8"
+								style="width:100%"
+								placeholder="Shop - County"
+								name="shopaddress3"
+								ng-model="misssmiley.shopaddress3" required >
+                                <small class="error" ng-show="submitted && miss_smiley.shopaddress3.$error.required">County is required.</small>
+					
+				</div>
+                
+
+
+					<div class="fn-register-field-section">
+						<label for="shopaddress1Field">Shop - Postcode*</label>
+						<input 	id="shopaddress1Field"
+								type="text" tabindex="9"
+								style="width:100%"
+								placeholder="Shop - Postcode"
+								name="postcode"
+								ng-model="misssmiley.postcode"
+	        					ng-maxlength="70"
+								required >
+						<small class="error" ng-show="submitted && miss_smiley.postcode.$error.required">Post Code is required.</small>
+					    
+					</div>
+				
+                
+
+					
+
+					<div class="fn-register-field-section">
+						<label for="shopphoneField">Shop Phone Number*</label>
+						<input 	id="shopphoneField"
+								type="text" tabindex="10"
+								style="width:100%"
+								placeholder="Shop Phone Number"
+								name="shopphone"
+								ng-model="misssmiley.shopphone"
+	        					ng-maxlength="20"
+								required >
+						<small class="error" ng-show="submitted && miss_smiley.shopphone.$error.required">	Phone Number is required.</small>
+						
+					
+
+					
+				</div>
+                </div>
+				<hr style="clear:both;">
+                <div class="fn-register-form-container">
+					<label>
+                    <span>I would prefer the IOS package</span> <input 	type='radio' style="height:15px; width:15px;"
+                        tabindex="11"
+								name="package"
+								ng-model="misssmiley.package"
+                                value="ios"
+								required ></label>  <label> &nbsp;&nbsp;<span>or Android package</span> <input 	type='radio' style="height:15px; width:15px;"
+                        tabindex="12"
+								name="package"
+								ng-model="misssmiley.package"
+                                value="android"
+								required >
+                                </label>
+					</br>
+					<small class="error" ng-show="submitted && miss_smiley.package.$error.required">Please choose one of the package.</small>
+				</div>
+                </br></br>
+                <div class="fn-register-form-container">
+					<label>
+						<input 	type='checkbox'
+                        tabindex="11"
+								name="sendPromotions"
+								ng-model="misssmiley.sendPromotions"
+								required > I agree to 49's terms and conditions.*
+					</label></br>
+					<small class="error" ng-show="submitted && miss_smiley.sendPromotions.$error.required">Click here to agree to 49's Competition Terms and Conditions.</small>
+				</div>
+			<button type="submit" id="fn-register-button" style="width:125px; height:50px; line-height:50px;" class="fn-blue-button" ng-click="submitted=true">SUBMIT</button>
+</form>
+
+
+			</div>
+
+		</div>
+ 		
+<div class="modal fade" id="videoModalform" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+                
+	            <button type="button" class="close" onclick='window.location.href="../49s";return false;' data-dismiss="modal" aria-hidden="true" >&times;</button>
+                
+	            <h4 class="modal-title" id="modalLabel">Staff Competition - Miss Smiley</h4>
+	            </div>
+                <div style="text-align:center; margin-top:10px;">
+				<p>Thank you for entering the competition.</p>
+                <p>Winners will be drawn on 19th December. </p>
+
+				<p>We will contact you if your shop is one of the winners.</p> 
+
+				<p>Good luck. </p>
+					</div>
+            <div class="fn-orange-button">
+		<a href="../49s" onclick='window.location.href="../49s";return false;'>CLOSE</a>
+                        </div>    
+                         
+                        
+	    	</div>
+            
+	  	</div>
+	</div>
+           <a href="#" id="modalthanks" data-toggle="modal" data-target="#videoModalform"></a>
+           
+           <p>
+			<a ng-click="termsShowing=true">*49's Terms and Conditions</a>
+		</p>
+
+		<div ng-show="termsShowing" class="fn-blue-shape container">
+			<div class="fn-section-container">
+				<a ng-click="termsShowing=false" style="float:right">Close</a>
+				</br>
+				<h2>49's Terms and Conditions</h2>
+				<ol>
+					<li>To register you must be: (a) UK resident; and (b) 18 years old or over at the time of entry.</li>
+					<li>By registering your details you agree to receive regular emails about 49's (or our Shareholders) promotions and other news.</li>
+					<li>If you wish to unsubscribe then you can click the unsubscribe link at the bottom of emails you receive.</li>
+					<li>Only entries with correct information will be registered with 49's.</li>
+					<li>Competitions are run by 49's Ltd, PO Box 7835, London W1J 9YY.</li>
+					<li>Competitions are not open to employees (or members of their immediate families) of 49's Ltd.</li>
+					<li>No purchase necessary, you can enter competitions via post, by sending your details to 49's Ltd, PO Box 7835, London W1J 9YY.</li>
+					<li>Only one entry per person, per competition.</li>
+					<li>Sending an e-mail is not proof that we have received your competition entry. No responsibility can be accepted for entries that are lost or delayed, or which are not received for any reason.</li>
+					<li>The winner for competitions will be randomly selected from all applicants, by a random number generator.</li>
+					<li>The closing date is midnight on the 19th December 2015 and 49's reserves the right to amend the competition end date at any time.</li>
+					<li>If you win a competition, we will notify you by telephone and e-mail. The judges' decision will be final, and no correspondence will be entered into.</li>
+					<li>You can find out who has won a particular competition by sending a stamped addressed envelope, marked with the name of the competition to 49's Ltd, PO Box 7835, London W1J 9YY, after the closing date, results will also be displayed on the website.</li>
+					<li>By entering a competition the winner agrees to participate in such promotional activity and material as 49's may require.</li>
+					<li>The prize will not be transferable to another person.</li>
+					<li>No part of a prize is exchangeable for cash or any other prize.</li>
+					<li>If an advertised prize is not available, we reserve the right to offer an alternative prize of equal or greater value.</li>
+					<li>Incorrectly completed entries will be disqualified.</li>
+					<li>49's reserves the right to amend these rules at any time. 49's may also create rules which will apply to a specific competition only. If we do this we will publish the amended competition rules and/or specific competition rules on the relevant competition.</li>
+					<li>49's will endeavour to send prizes within a month of the competition end date but cannot guarantee this delivery time.</li>
+                    <li>Prizes for the Miss Smiley, Staff Team Competition are:<br/>
+                    2 x iOS Bundles consisting of:<br/>
+					1 x Macbook Air 11"<br/>
+					1 x iPhone 6s 4.7" 16GB<br/>
+					1 x iPad Air 2 16GB<br/>
+					1 x iPad Mini 4 16GB<br/>
+					1 x £100 iTunes gift card<br/><br/>
+
+					2 x Android Bundles consisting of:<br/>
+					1 x Sony Viao Pentium 11.6" 4GB<br/>
+					1 x Samsung S Edge Phone 32GB<br/>
+					1 x Galaxy Tab S 10.5 16GB<br/>
+					1 x Galaxy Tab S 8.4 16GB<br/>
+					1 x £100 Google Play gift card<br/><br/>
+
+					8 x iOS Runner up prizes consisting of:<br/>
+					1 x iPad mini 4 16GB<br/>
+					1 x £100 iTunes gift card<br/><br/>
+
+					8 x Android Runner up prizes consisting of:<br/>
+					1 x Samsung Galaxy Tab S 10.5 16GB<br/>
+					1 x £100 Google Play gift card<br/><br/>
+</li>
+				</ol>
+			</div>
+		</div>
+
+        </div>
+
+    </div>
+
+</div>

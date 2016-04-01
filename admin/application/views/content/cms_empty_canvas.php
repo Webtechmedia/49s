@@ -1,0 +1,1 @@
+<?php echo (isset ($content_module) ? $content_module : "" ) ?>

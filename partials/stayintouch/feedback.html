@@ -1,0 +1,384 @@
+<div class="fn-page-container container">
+
+	<div class ="fn-blue-heading-convex container">
+		<H2 class="fn-section-header">YOUR FEEDBACK</H2>
+	</div>
+
+	<div class="fn-section-container" ng-hide="showThanks">
+		<p>
+			Welcome to the development site for the new 49's website, before we launch we would like to make sure our users are happy with it. Your feedback is very important to us and we value your opinions so please could you spare sometime to look through the pages and give us your feedback.
+		</p>
+		<p>
+			This website is not yet live but it will allow you to navigate through all the pages and use as if it were live. You will see a FEEDBACK HERE button floating on the right hand side and this is where you can leave us your feedback. You can go to and from this page and all the others on the site without losing your selections.
+		</p>
+		<p>
+			All completed feedback forms will be entered into a <strong>FREE</strong> prize draw and 10 winners will be drawn at random. Winners can choose £300 worth of vouchers from one of the following options:
+			<ul>
+				<li>High Street Vouchers</li>
+				<li>iTunes Vouchers</li>
+				<li>Google Play Vouchers</li>
+			</ul>
+			Please note registrants <strong>must be from the UK</strong> and <strong>18 years old and over</strong>.
+		</p>
+
+<form name="feedback_form" ng-submit="submitForm(feedback_form.$valid)"  method="post" novalidate ng-hide="feedbackFormElements">
+
+		 <div class="fn-grey-shape container">
+			<div class="fn-section-container fn-register-form">
+
+				<div class="fn-register-form-section" style="float:left;">
+					<div class="fn-register-field-section">
+						<label for="fornameField">1. Name</label>
+						<input 	autofocus
+								id="fornameField"
+								type="text"
+								style="width:100%"
+								placeholder="Name"
+								name="name"
+								ng-model="feedback.name"
+								value="register.name"
+								ng-minlength=2
+	        					ng-maxlength=70
+	        					ng-required="true"
+								required >
+					    <small class="error" ng-show="submitted && feedback_form.name.$error.required">Your name is required.</small>
+					    <small class="error" ng-show="feedback_form.name.$error.minlength">Your name is required to be at least 2 characters</small>
+					    <small class="error" ng-show="feedback_form.name.$error.maxlength">Your name cannot be longer than 70 characters</small>
+					</div>
+				</div>
+				<div class="fn-register-form-section" style="float:right;">
+					<div class="fn-register-field-section" style="float:left;">
+							<label for="emailField">2. Email Address</label>
+							<input 	id="emailField"
+									type="email"
+									style="width:100%"
+									placeholder="email@host.com"
+									name="email"
+									ng-model="feedback.email"
+									ng-minlength="4"
+									ng-maxlength="70"
+									required >
+							<small class="error" ng-show="feedback_form.email.$dirty &&  feedback_form.email.$error.email">Invalid email.</small>
+							<small class="error" ng-show="submitted && feedback_form.email.$error.required">Your email is required.</small>
+							<small class="error" ng-show="feedback_form.email.$error.minlength">Your email is to short.</small>
+							<small class="error" ng-show="feedback_form.email.$error.maxlength">Your email is to long.</small>
+					</div>
+				</div>
+
+				<hr style="clear:both;">
+
+				<div class="fn-feedback-form-section" style="float:left;">
+
+
+					<div class="fn-register-field-section">
+						<p class="fn-feedback-heading">3. Please rate the existing 49's website from 1-5 with 1 being poor and 5 outstanding.</p>
+						<small class="error" ng-show="submitted && feedback_form.rateOld.$error.required">Please select an option.</small>
+						<div class="fn-feedback-radio-container">
+							<label ng-repeat="n in [1,2,3,4,5]" for="rateOld{{n}}">{{n}}</br>
+								<input 	id="rateOld{{n}}" type="radio"  name="rateOld" ng-value="n" ng-model="feedback.rateOld" required>
+							</label ng-repeat>
+						</div>
+					</div>
+
+
+					<div class="fn-register-field-section">
+						<p class="fn-feedback-heading">4. Please rate this new 49's website from 1-5 with 1 being poor and 5 outstanding.</p>
+						<small class="error" ng-show="submitted && feedback_form.rateNew.$error.required">Please select an option.</small>
+						<div class="fn-feedback-radio-container">
+							<label ng-repeat="n in [1,2,3,4,5]" for="rateNew{{n}}">{{n}}</br>
+								<input 	id="rateNew{{n}}" type="radio"  name="rateNew" ng-value="n" ng-model="feedback.rateNew" required>
+							</label ng-repeat>
+						</div>
+					</div>
+
+
+					<div class="fn-register-field-section">
+						<p class="fn-feedback-heading">5. How would you describe this new website? Please select one option from each line:</p>
+						<small class="error" ng-show="submitted
+						&& (feedback_form.listUseful.$error.required
+						|| feedback_form.listInteresting.$error.required
+						|| feedback_form.listLayout.$error.required
+						|| feedback_form.listEasy.$error.required
+						|| feedback_form.listClear.$error.required
+						|| feedback_form.listEnjoyable.$error.required
+						|| feedback_form.listInfo.$error.required)">Please select all the options.</small>
+						<div class="fn-feedback-radio-list-container">
+
+							<div>
+								<table style="width:100%;vertical-align:middle;">
+									<tr>
+										<td>
+											<input id="listUsefulY" type="radio"  name="listUseful" value="Y" ng-model="feedback.listUseful" required>
+											<label for="listUsefulY">Useful</label>
+										</td>
+										<td>
+											<span class="fn-feedback-or">OR</span>
+										</td>
+										<td>
+											<input id="listUsefulN" type="radio"  name="listUseful" value="N" ng-model="feedback.listUseful" required>
+											<label for="listUsefulN">Not Useful</label>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<input id="listInterestingY" type="radio"  name="listInteresting" value="Y" ng-model="feedback.listInteresting" required>
+											<label for="listInterestingY">Interesting</label>
+										</td>
+										<td>
+											<span class="fn-feedback-or">OR</span>
+										</td>
+										<td>
+											<input id="listInterestingN" type="radio"  name="listInteresting" value="N" value="N" ng-model="feedback.listInteresting" required>
+											<label for="listInterestingN">Uninteresting</label>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<input id="listLayoutY" type="radio"  name="listLayout" value="Y" ng-model="feedback.listLayout" required>
+											<label for="listLayoutY">Good Layout</label>
+										</td>
+										<td>
+											<span class="fn-feedback-or">OR</span>
+										</td>
+										<td>
+											<input id="listLayoutN" type="radio"  name="listLayout" value="N" ng-model="feedback.listLayout" required>
+											<label for="listLayoutN">Bad Layout</label>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<input id="listEasyY" type="radio"  name="listEasy" value="Y" ng-model="feedback.listEasy" required>
+											<label for="listEasyY">Easy to Use</label>
+										</td>
+										<td>
+											<span class="fn-feedback-or">OR</span>
+										</td>
+										<td>
+											<input id="listEasyN" type="radio"  name="listEasy" value="N" ng-model="feedback.listEasy" required>
+											<label for="listEasyN">Difficult to Use</label>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<input id="listClearY" type="radio"  name="listClear" value="Y" ng-model="feedback.listClear" required>
+											<label for="listClearY">Clear Results</label>
+										</td>
+										<td>
+											<span class="fn-feedback-or">OR</span>
+										</td>
+										<td>
+											<input id="listClearN" type="radio"  name="listClear" value="N" ng-model="feedback.listClear" required>
+											<label for="listClearN">Unclear Results</label>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<input id="listEnjoyableY" type="radio"  name="listEnjoyable" value="Y" value="Y" ng-model="feedback.listEnjoyable" required>
+											<label for="listEnjoyableY">Enjoyable to Use</label>
+										</td>
+										<td>
+											<span class="fn-feedback-or">OR</span>
+										</td>
+										<td>
+											<input id="listEnjoyableN" type="radio"  name="listEnjoyable" value="N" ng-model="feedback.listEnjoyable" required>
+											<label for="listEnjoyableN">Unenjoyable to Use</label>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<input id="listInfoY" type="radio"  name="listInfo" value="Y" ng-model="feedback.listInfo" required>
+											<label for="listInfoY">Enough Information Given</label>
+										</td>
+										<td>
+											<span class="fn-feedback-or">OR</span>
+										</td>
+										<td>
+											<input id="listInfoN" type="radio"  name="listInfo" value="N" ng-model="feedback.listInfo" required>
+											<label for="listInfoN">Not Enough Information Given</label>
+										</td>
+									</tr>
+
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<div class="fn-register-field-section">
+						<p class="fn-feedback-heading">6. On a scale of 1 to 5 with 1 being poor and 5 being outstanding, do you like the layout of the results?</p>
+						<small class="error" ng-show="submitted && feedback_form.rateLayout.$error.required">Please select an option.</small>
+						<div class="fn-feedback-radio-container">
+							<label ng-repeat="n in [1,2,3,4,5]" for="rateLayout{{n}}">{{n}}</br>
+								<input 	id="rateLayout{{n}}" type="radio"  name="rateLayout" ng-value="n" ng-model="feedback.rateLayout" required>
+							</label ng-repeat>
+						</div>
+					</div>
+
+					<div class="fn-register-field-section">
+						<p class="fn-feedback-heading">7. Were you able to find everything you were looking for?</p>
+						<small class="error" ng-show="submitted && feedback_form.looking.$error.required">Please select an option.</small>
+						<div class="fn-feedback-radio-container">
+							<label for="lookingY">Yes</br>
+								<input 	id="lookingY" type="radio"  name="looking" value="Y" ng-model="feedback.looking" required>
+							</label>
+							<label for="lookingN">No</br>
+								<input 	id="lookingN" type="radio"  name="looking" value="N" ng-model="feedback.looking" required>
+							</label>
+						</div>
+					</div>
+
+					<div class="fn-register-field-section">
+						<p class="fn-feedback-heading">8. Please rate the new 49's Lucky Dip from 1 to 5 with 1 being poor and 5 being outstanding.</p>
+						<small class="error" ng-show="submitted && feedback_form.rate49sLD.$error.required">Please select an option.</small>
+						<div class="fn-feedback-radio-container">
+							<label ng-repeat="n in [1,2,3,4,5]" for="rate49sLD{{n}}">{{n}}</br>
+								<input 	id="rate49sLD{{n}}" type="radio"  name="rate49sLD" ng-value="n" ng-model="feedback.rate49sLD" required>
+							</label ng-repeat>
+						</div>
+					</div>
+
+					<div class="fn-register-field-section">
+						<p class="fn-feedback-heading">9. Please rate the new Irish Lotto Bet Lucky Dip from 1 to 5 with 1 being poor and 5 being outstanding.</p>
+						<small class="error" ng-show="submitted && feedback_form.rateILBLD.$error.required">Please select an option.</small>
+						<div class="fn-feedback-radio-container">
+							<label ng-repeat="n in [1,2,3,4,5]" for="rateILBLD{{n}}">{{n}}</br>
+								<input 	id="rateILBLD{{n}}" type="radio"  name="rateILBLD" ng-value="n" ng-model="feedback.rateILBLD" required>
+							</label ng-repeat>
+						</div>
+					</div>
+
+					<div class="fn-register-field-section">
+						<p class="fn-feedback-heading">10. Please rate The Fount from 1 to 5 with 1 being poor and 5 being outstanding.</p>
+						<small class="error" ng-show="submitted && feedback_form.rateFount.$error.required">Please select an option.</small>
+						<div class="fn-feedback-radio-container">
+							<label ng-repeat="n in [1,2,3,4,5]" for="rateFount{{n}}">{{n}}</br>
+								<input 	id="rateFount{{n}}" type="radio"  name="rateFount" ng-value="n" ng-model="feedback.rateFount" required>
+							</label ng-repeat>
+						</div>
+					</div>
+
+					<div class="fn-register-field-section">
+						<p class="fn-feedback-heading">11. Do you feel that this website is an improvement on the existing live website?</p>
+						<small class="error" ng-show="submitted && feedback_form.improvement.$error.required">Please select an option.</small>
+						<div class="fn-feedback-radio-container">
+							<label for="improvementY">Yes</br>
+								<input 	id="improvementY" type="radio"  name="improvement" value="Y" ng-model="feedback.improvement" required>
+							</label>
+							<label for="improvementN">No</br>
+								<input 	id="improvementN" type="radio"  name="improvement" value="N" ng-model="feedback.improvement" required>
+							</label>
+						</div>
+					</div>
+
+					<div class="fn-register-field-section">
+						<p class="fn-feedback-heading">12. Would you be interested in downloading our new results app?</p>
+						<small class="error" ng-show="submitted && feedback_form.downloadApp.$error.required">Please select an option.</small>
+						<div class="fn-feedback-radio-container">
+							<label for="downloadAppY">Yes</br>
+								<input 	id="downloadAppY" type="radio"  name="downloadApp" value="Y" ng-model="feedback.downloadApp" required>
+							</label>
+							<label for="downloadAppN">No</br>
+								<input 	id="downloadAppN" type="radio"  name="downloadApp" value="N" ng-model="feedback.downloadApp" required>
+							</label>
+						</div>
+					</div>
+
+					<div class="fn-register-field-section">
+						<p class="fn-feedback-heading">13. Do you use Twitter?</p>
+						<small class="error" ng-show="submitted && feedback_form.twitter.$error.required">Please select an option.</small>
+						<div class="fn-feedback-radio-container">
+							<label for="twitterY">Yes</br>
+								<input 	id="twitterY" type="radio"  name="twitter" value="Y" ng-model="feedback.twitter" required>
+							</label>
+							<label for="twitterN">No</br>
+								<input 	id="twitterN" type="radio"  name="twitter" value="N" ng-model="feedback.twitter" required>
+							</label>
+						</div>
+					</div>
+
+
+					<div class="fn-register-field-section">
+						<!-- <p class="fn-feedback-heading">14. Do you have any suggestions and/or improvements you would like to see made to this new website?</p> -->
+							<label for="suggestions">14. Do you have any suggestions and/or improvements you would like to see made to this new website?</label>
+							<textarea style="width:100%;height:130px" id="suggestions"
+									placeholder="Type your message here..."
+									name="suggestions"
+									ng-model="feedback.suggestions"
+									ng-minlength=2
+									ng-maxlength=1000
+									ng-required="true">
+							</textarea>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<button type="submit" id="fn-register-button" class="fn-blue-button" ng-click="submitted=true">SUBMIT</button>
+		<!-- <button type="submit" id="fn-register-button" class="fn-blue-button" ng-click="submitForm()">SUBMIT</button> -->
+
+</form>
+
+
+
+		<!-- <div class="fn-grey-shape container" ng-hide="registrationThankYou">
+			<div id="fn-contact-email-thanks" class="fn-section-container container" >
+				<h1>Thank you for registering with us</h1>
+				<span>You will be informed about the latest promotions and other interesting news via email.</span>
+			</div>
+		</div> -->
+
+
+
+
+
+
+
+        <p>
+					<a ng-click="termsShowing=true">Read 49's Terms and Conditions</a>
+    		</p>
+
+				<div ng-show="termsShowing" class="fn-blue-shape container">
+					<div class="fn-section-container">
+						<a ng-click="termsShowing=false" style="float:right">Close</a>
+						</br>
+						<h2>49’s Terms and Conditions</h2>
+						<ol>
+							<li>To register you must be: (a) UK resident; and (b) 18 years old or over at the time of entry.</li>
+							<li>By registering your details you agree to receive regular emails about 49’s (or our Shareholders) promotions and other news.</li>
+							<li>If you wish to unsubscribe then you can click the unsubscribe link at the bottom of emails you receive.</li>
+							<li>Only entries with correct information will be registered with 49’s.</li>
+							<li>Competitions are run by 49's Ltd, PO Box 7835, London W1J 9YY.</li>
+							<li>Competitions are not open to employees (or members of their immediate families) of 49's Ltd.</li>
+							<li>No purchase necessary, you can enter competitions via post, by sending your details to 49's Ltd, PO Box 7835, London W1J 9YY.</li>
+							<li>Only one entry per person, per competition.</li>
+							<li>Sending an e-mail is not proof that we have received your competition entry. No responsibility can be accepted for entries that are lost or delayed, or which are not received for any reason.</li>
+							<li>The winner for competitions will be randomly selected from all applicants, by a random number generator.</li>
+							<li>The closing date is specified in each competition and 49's reserves the right to amend the competition end date at any time.</li>
+							<li>If you win a competition, we will notify you by post and e-mail. The judges’ decision will be final, and no correspondence will be entered into.</li>
+							<li>You can find out who has won a particular competition by sending a stamped addressed envelope, marked with the name of the competition to 49's Ltd, PO Box 7835, London W1J 9YY, after the closing date, results will also be displayed on the website.</li>
+							<li>By entering a competition the winner agrees to participate in such promotional activity and material as 49's may require.</li>
+							<li>The prize will not be transferable to another person.</li>
+							<li>No part of a prize is exchangeable for cash or any other prize.</li>
+							<li>If an advertised prize is not available, we reserve the right to offer an alternative prize of equal or greater value.</li>
+							<li>Incorrectly completed entries will be disqualified.</li>
+							<li>49's reserves the right to amend these rules at any time. 49's may also create rules which will apply to a specific competition only. If we do this we will publish the amended competition rules and/or specific competition rules on the relevant competition page.</li>
+							<li>49's will endeavour to send prizes within a month of the competition end date but cannot guarantee this delivery time.</li>
+						<ol>
+					</div>
+				</div>
+
+	</div>
+
+	<div class="fn-section-container" ng-show="showThanks">
+		<div class="fn-grey-shape container">
+			<div class="fn-section-container">
+				<h1>Thank You</h1>
+				Your feedback has been submitted.
+			</div>
+		</div>
+	</div>

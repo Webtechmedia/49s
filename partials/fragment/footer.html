@@ -1,0 +1,86 @@
+<div class="fn-footer container">
+  <div class="fn-footer-links-container">
+    <ul class="navbar-nav fn-footer-nav">
+      <li ng-repeat="link in footerLinks" class="fn-footer-link-li">
+          <div class="fn-footer-link">
+              <a href="#" ng-click="navigationClickFn(link.path)">{{link.title}}</a>
+          </div>
+      </li>
+    </ul>
+    <div class="fn-footer-share-container">
+      Share the page
+      <div id="footer-tw">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{location.absUrl()}}" data-text="" data-size="large" data-count="none">Tweet</a>
+      </div>
+
+      <div id="footer-mail" class="fn-mail-icon">
+          <a href="mailto:%20?subject=49s Website&body={{location.absUrl()}}">
+              <img src="../../img/icons/ic_email.png">
+          </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-middle-container">
+  <div class="fn-footer-phone-container">
+    <div class="fn-footer-phone-icon">
+      <img src="../../img/icons/ic_phone.png">
+    </div>
+    <div class="fn-footer-phone-number">
+      <div class="condensed-bold" style="margin:0;text-align:center;font-size:1.15em;width:100%;">
+        RESULTS PHONE LINE
+      </div>
+      <div class="condensed-bold" style="margin:0;text-align:center;font-size:1.8em;">
+      08718 778899
+      </div>
+    </div>
+  <div class="fn-footer-phone-cost">
+    Calls cost 12p/minute plus your phone company’s access charge.
+    </div>
+  </div><div class="fn-footer-findus-container">
+    <h4>FIND US ON</h4>
+    <a href="https://www.youtube.com/channel/UCX29J71D_pIlscyg_fkVSNw" target="_blank">
+      <img src="../../img/btn/YouTube-social-icon_red_48px.png" style="vertical-align:top; height:28px;margin-right:1px;" alt="Youtube">
+    </a>
+    <div style="vertical-align:middle;display:inline-block;">
+    <a href="https://twitter.com/Bet49s" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">@Bet49s</a>
+    <a href="https://twitter.com/irishlottobet" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">@irishlottobet</a>
+  </div>
+
+  </div><div class="fn-footer-gambleaware-container">
+    <img src="../../img/btn/over18_footer.png" style="margin-bottom:5px;" alt="Players must be aged 18 or over.">
+    <a href="http://www.gambleaware.co.uk/" target="_blank">
+    <img src="../../img/btn/gaware_footer.png" style="margin-bottom:5px;" alt="Gamble Aware">
+    </a>
+  </div>
+  </div>
+
+  <ul class="navbar-nav fn-footer-operator-container">
+      <li ng-repeat="option in shareholderOptions" class="fn-footer-operator-item">
+          <a href="#" ng-click="shareholderClickFn(option.link)">
+              <div class={{option.cls}} style="width:100%; height:100%"></div>
+          </a>
+      </li>
+  </ul>
+  <div style="clear:both"></div>
+    <div style="width:50%;float:left;">
+      49’s Ltd is a company registered in England, number 32856278.
+    </div>
+    <div style="width:50%;float:left;text-align:right;">
+      Copyright 2015 49's Ltd.
+    </div>
+    <div style="clear:both"></div>
+  <p>
+  <br/>
+  <div ng-show="showDisclaimer()">
+    <strong>RESULTS DISCLAIMER</strong>
+    <br />
+    Although every effort is made to ensure the results are correct on this site, 49's Ltd excludes all liability in respect of any loss arising as a result of this site or reliance on information provided by the site. Customers are advised to check results with staff at their local betting shop.
+    </p>
+  </div>
+
+  <div id="fn-version-num" ng-show="showVersion">{{versionNum}}</div>
+
+</div>
+
+

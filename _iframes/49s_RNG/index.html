@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>49s Lucky Dip</title>
+                <link href="main.css" rel="stylesheet" type="text/css" />
+                <script src="anim.js"></script>
+        </head>
+
+<body onload="init();" style="overflow:hidden;">
+
+
+  <div id="load-container" style="width:200px;height:10px;border:1px solid grey;text-align:center;margin:auto;margin-top:240px;">
+    <div id="loading-bar" style="background-color:#ff6600;width:0%;height:100%;">
+    </div>
+  </div>
+
+
+        <div id="animDiv"></div>
+
+        <script src="https://code.createjs.com/easeljs-0.8.0.min.js"></script>
+        <script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
+        <script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
+<!--
+        <body >
+		</body> -->
+
+
+
+        <script>
+
+        function init(){
+
+          assets = new createjs.LoadQueue(false);
+
+        	assetManifest = [
+            	{src:"assets/Intro_0.png", id:"intro1"},
+            	{src:"assets/Intro_1.png", id:"intro2"},
+            	{src:"assets/Intro_2.png", id:"intro3"},
+            	{src:"assets/Intro_3.png", id:"intro4"},
+
+
+            	{src:"assets/BallFill_0.png", id:"ballFill1"},
+            	{src:"assets/BallFill_1.png", id:"ballFill2"},
+              {src:"assets/ballBlue.png", id:"ballBlue"},
+              {src:"assets/ballBrown.png", id:"ballBrown"},
+              {src:"assets/ballGreen.png", id:"ballGreen"},
+              {src:"assets/ballOrange.png", id:"ballOrange"},
+              {src:"assets/ballPurple.png", id:"ballPurple"},
+              {src:"assets/ballRed.png", id:"ballRed"},
+              {src:"assets/ballYellow.png", id:"ballYellow"},
+              {src:"assets/btn_blue.png", id:"btn_blue"}
+    		      ];
+
+		      fileCount = 0;
+
+		      assets.addEventListener("fileload", function(){
+
+    			if ( fileCount === assetManifest.length-1 ){
+    				anim = new bug();
+    				anim.init('animDiv');
+            document.getElementById('load-container').style.display = 'none';
+    			}else{
+    				fileCount++;
+            var loaded = ((fileCount+1) / assetManifest.length)*100;
+            document.getElementById('loading-bar').style.width = loaded+'%';
+    			}
+
+		    });
+
+		      assets.loadManifest(assetManifest);
+
+		    }
+
+        </script>
+
+</body>
+</html>

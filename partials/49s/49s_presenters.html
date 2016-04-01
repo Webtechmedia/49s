@@ -1,0 +1,81 @@
+<div class="container fn-page-container fn-49s">
+	<div class="fn-hero-wrapper-home" style="z-index:1;">
+	    <div id="homeCarousel" class="carousel slide" data-ride="carousel" >
+	      <!-- Indicators -->
+	      <ul class="carousel-indicators">
+	      </ul>
+	      <div class="carousel-inner" role="listbox" >
+	      </div>
+	    </div>
+		<div class="fn-hero container" style="pointer-events:none;" ></div>
+	</div>
+  <section ng-controller="FNFNMenuController" class="fn-fn-menu-controller" ng-include src="'partials/49s/49s_menu.html'">
+  </section>
+
+
+
+		<div class="modal fade" id="presenterMainVideoModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+				<div class="modal-dialog">
+						<div class="modal-content">
+								<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
+								<h4 class="modal-title" id="modalLabel">{{selectedPresenter.header}}</h4>
+								</div>
+
+					<video id="presenter_main_video" class="video-js vjs-default-skin"  controls preload="none" width="auto" height="auto" style="width:100%" data-setup="{}">
+							<source src="" type='video/mp4' />
+							<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+						</video>
+					</div>
+				</div>
+		</div>
+
+
+
+
+
+    <div class ="fn-heading-concave container">
+        <H2 class="fn-section-header" style="padding-top:10px;">49's PRESENTERS</H2>
+    </div>
+    <div class="fn-section-container" style="">
+        <!-- Have you been a winner? Contact us by our <a ng-href="../contact">contact form</a> or twitter <a href="https://twitter.com/intent/tweet?screen_name=Bet49s">@Bet49s</a> and tell us about your win and we may feature your story below. -->
+
+        <div class="fn-winner-container">
+            <div class="fn-winner-photo">
+							<img src="{{selectedPresenter.main_img_full}}" style="width:100%;height:100%;">
+
+                <div class="fn-winner-section-cover">
+									<a href="#" ng-show="selectedPresenter.hasVideo" data-toggle="modal" data-target="#presenterMainVideoModal" ng-click="playMainVideo()">
+										<div style="width:100%;height:100%;">
+												<img src="../img/icons/ic_video_play.png" style="margin:120px auto;display:block;">
+											</div>
+									</a>
+								</div>
+            </div>
+
+            <div class="fn-orange-shape-small container fn-winner-story">
+
+                <div style="padding:20px">
+									<h3>{{selectedPresenter.header}}</h3>
+									<div ng-bind-html="selectedPresenter.content"></div>
+                </div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+
+        <hr>
+
+        <H3 class="fn-section-header" style="padding-top:10px;">MEET THE PRESENTERS</H3>
+
+        <div class="fn-bethere-promo-container">
+            <div ng-repeat="presenter in presenters track by $index" class="fn-bethere-promo-item" style="max-width:230px;height:140px;margin-bottom:10px;">
+                <a href="" ng-click="presenterClicked($index)">
+									<img src="{{presenter.thumb_img_full}}" style="width:100%;height:100%;">
+									<div class="fn-promo-section-footer" style="text-align:left;font-size:0.9em;line-height: 17px;" ng-bind-html="presenter.caption"></div>
+                    <div class="fn-promo-section-cover"></div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>

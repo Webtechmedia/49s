@@ -1,0 +1,174 @@
+<div class="container fn-page-container fn-49s">
+	<div class="fn-small-hero-wrapper" >
+	    <div id="smallCarousel" class="carousel slide" data-ride="carousel" >
+	      <!-- Indicators -->
+	      <ul class="carousel-indicators">
+	      </ul>
+	      <div class="carousel-inner" role="listbox" >
+	      </div>
+	    </div>
+		<div class="fn-hero-small container" style="pointer-events:none;" ></div>
+	</div>
+
+	<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
+	            <h4 class="modal-title" id="modalLabel">HOW TO PLAY</h4>
+	            </div>
+				<video id="how_to_play_video" class="video-js vjs-default-skin"  controls preload="none" width="auto" height="auto" style="width:100%"
+			        data-setup="{}">
+			    	<source src="/uploads/videos/ILB_how_to_play_main_10.mp4" type='video/mp4' />
+			    	<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+			  	</video>
+	    	</div>
+	  	</div>
+	</div>
+    
+    <div class="modal fade" id="videoModalmiss" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+                
+	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
+                
+	            <h4 class="modal-title" id="modalLabel">Miss Smiley</h4>
+	            </div>
+				<video id="how_to_play_video_miss" class="video-js vjs-default-skin"  controls preload="auto" width="auto" height="auto" style="width:100%"">
+			    	<source src="https://49suploadsassets.s3.amazonaws.com/Found Me_V003.mp4" type='video/mp4' />
+			    	<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+			  	</video>  
+             <!--   <video  controls   preload="none" width="auto" height="auto" style="width:100%"
+			        >
+  <source src="http://www.webtechmedia.com/admin/uploads_assets/a9d8ac3a46307770a6a9eed249daaad8.mp4" type="video/mp4">
+ 
+  Your browser does not support HTML5 video.
+</video>-->
+
+            <div class="fn-orange-button">
+		<a href="../49s/miss-smiley" onclick='window.location.href="../49s/miss-smiley";return false;'>Enter Now</a>
+                        </div>    
+                         
+                        
+	    	</div>
+            
+	  	</div>
+	</div>
+
+    <section ng-controller="FNFNMenuController" ng-include src="'partials/49s/49s_menu.html'">
+    </section>
+
+    <div class ="fn-heading-concave container">
+        <H2 class="fn-section-header" style="padding-top:10px;">HOW TO PLAY</H2>
+    </div>
+
+
+    <div class="fn-section-container" style="display: inline-block;">
+
+        <div class="fn-left-block-text">
+            <p>
+							49's is a twice daily draw that takes place at lunchtime (12.49) and teatime (16:49 Oct – Feb and 17.49 Feb - Oct) everyday. Times may vary so please check with your <a  class="miss_smil" data-toggle="modal" data-target="#videoModalmiss" ng-click="playMainVideo()">'MISS SMILEY'</a> bookmaker daily. Six numbers plus a bonus number known as the "Booster" are drawn from balls marked 1-49. You can play either the 6 or 7 number draw (which includes the Booster ball to increase your chances of winning).
+            </p>
+            <p>
+							You can bet on 1 to 6 numbers from the 49 in each draw. Some bookmakers bet types may vary so please check with your local bookmaker.
+            </p>
+        </div>
+
+        <div class="fn-bethere-promo-container fn-right-block-section">
+					<h4>HOW TO FILL IN YOUR BETTING SLIP</h4>
+            <div class="fn-bethere-promo-item" style="width:100%;margin:0;">
+                <img src={{thumbSrc}} class="fn-video-thumb" >
+                <a href="#"    data-toggle="modal" data-target="#howToPlayMainVideoModal" ng-click="playMainVideo()">
+                    <div class="fn-promo-section-cover">
+                    </div>
+                </a>
+            </div>
+			<div class="modal fade" id="howToPlayMainVideoModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
+			            <h4 class="modal-title" id="modalLabel">HOW TO FILL IN YOUR BETTING SLIP</h4>
+			            </div>
+
+						<video id="how_to_play_main_video" class="video-js vjs-default-skin"  controls preload="none" width="auto" height="auto" style="width:100%"
+					        data-setup="{}">
+					    	<source src="{{videoSrc}}" type='video/mp4' />
+					    	<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+					  	</video>
+			    	</div>
+			  	</div>
+			</div>
+        </div>
+    </div>
+
+    <div class="fn-section-container">
+        <div>
+            <h3>49's RULES</h3>
+						The 49's rules are just a guide, so you need to check the rules of the bookmaker that you place your bet with as they might be different. <a ng-href="../49s/rules">Read Rules</a>
+        </div>
+        <hr>
+
+        <div>
+            <h3>PICK AND MATCH</h3>
+						Simply enter your stake below, choose how many numbers you matched and click the WIN AMOUNT button to see how much you could win on 49's.
+
+            <div class="fn-product-shape container" style="text-align:center;">
+
+                <form novalidate >
+                    <div class="fn-play-match-input-container">
+                        <label for="stakeField">Your Stake</label>
+                        <span class="fn-currency-symbol"></span>
+                        <input id="stakeField" type="text" placeholder="1.00" style="width:100%" ng-model="stakeOptions.stake">
+                    </div>
+
+                    <div class="fn-play-match-input-container">
+                        <label for="numbersField">Numbers Matched</label>
+                        <div class="fn-dropdown fn-date-dropdown-month fn-play-match-input">
+                            <select class="fn-dropdown-select" id="numbersField" ng-model="stakeOptions.numBalls" ng-options="opt as opt.label for opt in ballAmounts"></select>
+                        </div>
+                    </div>
+
+                    <a href="#" ng-click="update(stakeOptions)">
+                        <div class="fn-orange-button" style="display: inline-block;vertical-align: top">
+													WIN AMOUNT
+                        </div>
+                    </a>
+                </form>
+
+                <div class="fn-results-previous" style="height:auto;color:white;">
+                    <div class="fn-results-top-arc"></div>
+                    <div class="fn-results-bottom-arc"></div>
+											<div class="fn-playmatch-results condensed-bold" style="font-size:1.6em;">
+												<div class="fn-playmatch-results-left">
+                                <span class="fn-accent-text">6 NUMBER DRAW</span>
+                                <br/>
+                                <span>£{{sixWinnings}}</span>
+                            </div>
+														<div class="fn-playmatch-results-or">
+                                OR
+                            </div>
+														<div class="fn-playmatch-results-right">
+                                <span class="fn-accent-text">7 NUMBER DRAW</span>
+                                <br/>
+                                <span>£{{sevenWinnings}}</span>
+                                <br/>
+                                <img src="../../img/balls/booster.png">
+														</div>
+											</div>
+											<div style="padding-bottom:10px">
+											Please check payout limits with bookmakers.
+										</div>
+                </div>
+                <p>
+                <br/>
+								Winning amounts include your stake.  Bet types and payouts may vary so please check with your local bookmaker.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

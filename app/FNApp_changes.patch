@@ -1,0 +1,170 @@
+--- /home/ec2-user/migration/httpdocs/app/FNApp.js	2016-01-18 02:04:15.000000000 -0500
++++ FNApp.js	2016-02-04 05:54:40.027991090 -0500
+@@ -297,6 +297,7 @@
+ 					url: $scope.baseURL+'/games/get_previous',
+ 					type: 'post',
+ 					dataType: 'json',
++                                        contentType: "application/json; charset=utf-8",
+ 					data:  JSON.stringify({"game":"49","date": selectedDate}),
+ 					beforeSend: function() {
+ 						$( ".no-results-for-date" ).remove();
+@@ -318,6 +319,7 @@
+         $.ajax({
+             url: $scope.baseURL+'/games/get_hot_cold_balls',
+             type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+             dataType: 'json',
+             data:  JSON.stringify({"game_type":"49"}),
+             beforeSend: function() {
+@@ -1225,6 +1227,7 @@
+         ajaxRequest = $.ajax({
+ 					url: $scope.baseURL+'/games/get_previous',
+ 					type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+ 					dataType: 'json',
+ 					data:  JSON.stringify({"game":"49","date": selectedDate}),
+ 					beforeSend: function() {
+@@ -2144,6 +2147,7 @@
+         $.ajax({
+           url: $scope.baseURL+'/games/get_next_game',
+           type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+           dataType: 'json',
+           data:  JSON.stringify({"date": Date.today().toString("yyyy-MM-dd")}),
+           beforeSend: function() {
+@@ -2472,6 +2476,7 @@
+         $.ajax({
+             url: $scope.baseURL+'/games/get_hot_cold_balls',
+             type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+             dataType: 'json',
+             data:  JSON.stringify({"game_type":"il"}),
+             beforeSend: function() {
+@@ -2522,6 +2527,7 @@
+         ajaxRequest = $.ajax({
+ 					url: $scope.baseURL+'/games/get_previous',
+ 					type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+ 					dataType: 'json',
+ 					data:  JSON.stringify({"game":"il","date": selectedDate}),
+ 					beforeSend: function() {
+@@ -3278,6 +3284,7 @@
+         ajaxRequest = $.ajax({
+ 					url: $scope.baseURL+'/games/get_previous',
+ 					type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+ 					dataType: 'json',
+ 					data:  JSON.stringify({"game":"il","date": selectedDate}),
+ 					beforeSend: function() {
+@@ -4185,6 +4192,7 @@
+           $.ajax({
+               url: $scope.baseURL+'/games/get_hot_cold_balls',
+               type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+               dataType: 'json',
+               data:  JSON.stringify({"game_type":"ra"}),
+               beforeSend: function() {
+@@ -4234,6 +4242,7 @@
+          ajaxRequest = $.ajax({
+  					url: $scope.baseURL+'/games/get_previous',
+  					type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+  					dataType: 'json',
+  					data:  JSON.stringify({"game":"ra","date": selectedDate}),
+  					beforeSend: function() {
+@@ -4876,6 +4885,7 @@
+         ajaxRequest = $.ajax({
+ 					url: $scope.baseURL+'/games/get_previous',
+ 					type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+ 					dataType: 'json',
+ 					data:  JSON.stringify({"game":"ra","date": selectedDate}),
+ 					beforeSend: function() {
+@@ -6894,6 +6904,7 @@
+     		  		$.ajax({
+     		  			url: $scope.baseURL+'/oracle/oracle_49s',
+     		  			type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+     		  			dataType: 'json',
+     		  			data:  JSON.stringify({"numbers":selectedBalls,"from":$( "#fromField49s" ).val(),"to": $( "#toField49s" ).val(),"quickSelect":$( "#quickSelect49" ).val(),"lunchtime":$( "#lunchtimeDraw49" ).prop('checked'),"teatime":$( "#teatimeDraw49" ).prop('checked')}),
+     		  			beforeSend: function() {
+@@ -7053,6 +7064,7 @@
+       		  		$.ajax({
+       		  			url: $scope.baseURL+'/oracle/oracle_ILB',
+       		  			type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+       		  			dataType: 'json',
+       		  			data:  JSON.stringify({"numbers":ilbSelectedBalls,"from":$( "#fromFieldILB" ).val(),"to": $( "#toFieldILB" ).val(),"quickSelect":$( "#quickSelectILB" ).val(),"main_draw":$( "#mainDrawILB" ).prop('checked'),"second_draw":$( "#secondDrawILB" ).prop('checked'),"third_draw":$( "#thirdDrawILB" ).prop('checked')}),
+       		  			beforeSend: function() {
+@@ -7217,6 +7229,7 @@
+ 					$.ajax({
+ 			  			url: $scope.baseURL+'/oracle/oracle_vhr',
+ 			  			type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+ 			  			dataType: 'json',
+ 			  			data:  JSON.stringify({"name":horseName,"from":$( "#fromFieldVHR" ).val(),"to": $( "#toFieldVHR" ).val(),"quickSelect":$( "#quickSelectVHR" ).val()}),
+ 			  			beforeSend: function() {
+@@ -7415,6 +7428,7 @@
+ 					$.ajax({
+ 			  			url: $scope.baseURL+'/oracle/oracle_vgr',
+ 			  			type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+ 			  			dataType: 'json',
+ 			  			data:  JSON.stringify({"name":dogName,"from":$( "#fromFieldVGR" ).val(),"to": $( "#toFieldVGR" ).val(),"quickSelect":$( "#quickSelectVGR" ).val()}),
+ 			  			beforeSend: function() {
+@@ -7616,6 +7630,7 @@
+         				  $.ajax({
+         		  			url: $scope.baseURL+'/oracle/oracle_rapido',
+         		  			type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+         		  			dataType: 'json',
+         		  			data:  JSON.stringify({"numbers":rapidoSelectedBalls,"from":$( "#fromFieldRapido" ).val(),"to": $( "#toFieldRapido" ).val(),"quickSelect":$( "#quickSelectRapido" ).val(),"heads":true,"tails":true ,"level":true  }),
+         		  			beforeSend: function() {
+@@ -8040,6 +8055,7 @@
+         ajaxRequest = $.ajax({
+  					url: $scope.baseURL+'/games/get_previous_results',
+  					type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+  					dataType: 'json',
+  					data:  JSON.stringify({"game_type":"vdr","date": selectedDate}),
+  					beforeSend: function() {
+@@ -8498,6 +8514,7 @@
+         ajaxRequest = $.ajax({
+  					url: $scope.baseURL+'/games/get_previous_results',
+  					type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+  					dataType: 'json',
+  					data:  JSON.stringify({"game_type":"vdr","date": selectedDate}),
+ 					beforeSend: function() {
+@@ -9268,6 +9285,7 @@
+         ajaxRequest = $.ajax({
+  					url: $scope.baseURL+'/games/get_previous_results',
+  					type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+  					dataType: 'json',
+  					data:  JSON.stringify({"game_type":"vhr","date": selectedDate}),
+  					beforeSend: function() {
+@@ -9741,6 +9759,7 @@
+ 				$.ajax({
+ 					url: $scope.baseURL+'/games/get_previous_results',
+ 					type: 'post',
++                                        contentType: "application/json; charset=utf-8",
+ 					dataType: 'json',
+ 					data:  JSON.stringify({"game_type":"vhr","date": selectedDate}),
+ 					beforeSend: function() {
+@@ -10568,7 +10587,7 @@
+ 	//if(ip=='winonnumbers.com'){ $rootScope.baseURL = "https://api.49s.co.uk/index.php"; }
+ 	//if(ip=='www.winonnumbers.com'){ $rootScope.baseURL = "https://api.49s.co.uk/index.php"; }
+ 	
+-	$rootScope.baseURL = "http://www.webtechmedia.com/index.php"; 
++	$rootScope.baseURL = "http://productionwebelb-1900518919.eu-west-1.elb.amazonaws.com/index.php"; 
+ 	
+ 
+     $rootScope.online = navigator.onLine;
+@@ -10788,4 +10807,4 @@
+ });
+ 
+ 
+-//# sourceMappingURL=FNApp.js.map
+\ No newline at end of file
++//# sourceMappingURL=FNApp.js.map

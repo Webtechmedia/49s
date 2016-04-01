@@ -1,0 +1,111 @@
+<div class="container fn-page-container fn-VGR">
+	<div class="fn-small-hero-wrapper" >
+	    <div id="smallCarousel" class="carousel slide" data-ride="carousel" >
+	      <!-- Indicators -->
+	      <ul class="carousel-indicators">
+	      </ul>
+	      <div class="carousel-inner" role="listbox" >
+	      </div>
+	    </div>
+		<div class="fn-hero-small container" style="pointer-events:none;" ></div>
+	</div>
+    <section ng-controller="FNVGRMenuController" class="fn-fn-menu-controller" ng-include src="'partials/greyhoundracing/VGR_menu.html'">
+    </section>
+	<div id="slider">
+	 	<div class="fn-heading-concave container" style="vertical-align: middle;">
+				<h2 class="fn-section-header">PREVIOUS RESULTS</h2>
+	            <div class="container fn-accent-text" style="text-align:center;margin-bottom:20px;width:100%;vertical-align: middle;">
+	                <div class="month-controls clearfix">
+	                	<div class="middle-coontrols">
+		             		<div class="fn-dropdown fn-date-dropdown-month">
+		      					<select class="fn-dropdown-select" name="month" id="month">
+		                        	<option value="1">January</option>
+		                        	<option value="2">February</option>
+		                        	<option value="3">March</option>
+		                        	<option value="4">April</option>
+		                        	<option value="5">May</option>
+		                        	<option value="6">June</option>
+		                        	<option value="7">July</option>
+		                        	<option value="8">August</option>
+		                        	<option value="9">September</option>
+		                        	<option value="10">October</option>
+		                        	<option value="11">November</option>
+		                        	<option value="12">December</option>
+		                        </select>
+		                    </div>
+		                    <div class="fn-dropdown fn-date-dropdown-year">
+		                        <select class="fn-dropdown-select" name="year" id="year"  >
+		                        </select>
+		                    </div>
+	                	</div>
+		                <div class="fn-change-year-btn-left" >
+		                    <a href="" id="prevMonthClick">
+		                    	<img src="../../img/icons/ic_arrow_white.png" class="left-arrow-icon" >
+		                        <div class="month-controls-circle mcc-red">
+		                        </div>
+		                        <div id="previous-month-switch" class="month-controls-name"></div>
+		                    </a>
+		                </div>
+		                <div class="fn-change-year-btn-right" style="">
+		                    <a href="" id="nextMonthClick">
+		                        <div id="next-month-switch" class="month-controls-name"></div>
+		                        <div class="month-controls-circle mcc-red">
+		                        </div>
+		                        <img src="../../img/icons/ic_arrow_white.png" class="right-arrow-icon" >
+		                    </a>
+		                </div>
+	                </div>
+	            </div>
+	            <div id="vhr_controlls" class="days-controls">
+		             <div class="days-holder">
+		                <ul id="days-list-vgr">
+		                </ul>
+		            </div>
+	            </div>
+	            <div id="lottery-results" class="clearfix" style="background:#924130" >
+	                <div class="fn-results-top-arc"></div>
+	                <div class="results-container">
+	                	<img src="../../img/icons/ajax_loader.gif" class="fn-loading-spinner" style="display:none;" id="main-spinner"/>
+						<div class="resoults-middle-container">
+		                    <div class="segmented-control">
+								<ul id="location-list">
+								</ul>
+		                	</div>
+				            <div class="fn-racing-results">
+								<ul class="tab-content" id="location-content">
+								</ul>
+		                    </div>
+		                    <div class="results-prev-day-btn">
+		                        <a id="previous-day" data-toggle="tab" href="#draw_pagination_1">
+		                            <img src="../../img/btn/ic_arrow_circle_left.png">
+			                        <span class="prev-day-label">
+			                            Previous<br>Day
+			                            <br>
+			                            <span class="fn-accent-text" id="previous-day-button"></span>
+			                        </span>
+		                        </a>
+		                    </div>
+		                    <div  class="results-next-day-btn">
+		                        <a id="next-day" data-toggle="tab" href="#draw_pagination_1">
+		                            <img src="../../img/btn/ic_arrow_circle_right.png">
+		                        <span class="next-day-label">
+		                            Next<br>Day
+		                            <br>
+		                            <span class="fn-accent-text" id="next-day-button"></span>
+		                        </span>
+		                        </a>
+		                    </div>
+
+	                    </div>
+
+	                </div>
+	                <div class="fn-white-bottom-arc"></div>
+	            </div>
+			</div>
+	</div>
+
+
+
+
+
+</div>

@@ -1,0 +1,16 @@
+RewriteEngine on
+DirectoryIndex index.html index.htm index.php index.shtml index.shtm
+# Don't rewrite files or directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Rewrite everything else to index.html to allow html5 state links
+RewriteRule ^ index.html [L]
+
+
+
+php_value  max_execution_time  30000
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on

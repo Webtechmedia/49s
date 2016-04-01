@@ -1,0 +1,684 @@
+
+<div class="fn-small-hero-wrapper">
+    <div id="smallCarousel" class="carousel slide" data-ride="carousel" >
+      <!-- Indicators -->
+      <ul class="carousel-indicators">
+      </ul>
+      <div class="carousel-inner" role="listbox" >
+      </div>
+    </div>
+	<div class="fn-hero-small container" style="pointer-events:none;" ></div>
+</div>
+
+<div class ="fn-heading-concave container" id="oracle_title" >
+    <H2 class="fn-section-header" style="color:#22397f" >Welcome to 'The Fount of all Knowledge'</H2>
+</div>
+
+<div class="fn-section-container" id="oracle_motto"  >
+  <p>
+    Use The Fount of all Knowledge to delve into the past results of all products. Please remember that these are just historic results and have no bearing on future events.
+    <br>
+    <br>
+    Select your product to ask The Fount of all Knowledge:
+  </p>
+</div>
+
+
+
+<ul class="oracle-product-picker">
+	   <li class="active"><span data-toggle="tab" href="#product_1"><img src="../../img/logos/top_logo_49s_small.png" /><p>49's</p></span></li><!--
+	--><li><span data-toggle="tab" href="#product_2"><img src="../../img/logos/top_logo_irish_small.png" /><p>Irish Lotto Bet</p></span></li><!--
+	--><li><span data-toggle="tab" href="#product_3"><img src="../../img/logos/top_logo_horses_small.png"/><p>Virtual Horse Racing</p></span></li><!--
+	--><li><span data-toggle="tab" href="#product_4"><img src="../../img/logos/top_logo_greyhounds_small.png" /><p>Virtual Greyhound Racing</p></span></li><!--
+	--><li><span data-toggle="tab" href="#product_5"><img src="../../img/logos/top_logo_rapido_small.png" /><p>Rapido</p></span></li>
+</ul>
+
+
+
+
+
+
+<div class="tab-content">
+
+
+	<div class="tab-pane fade in active" id="product_1">
+		<div class="fn-section-container fn-49s">
+			<h3>PICK UP TO 5 NUMBERS</h3>
+			<div class="fn-product-shape container">
+		        <div style="padding:20px;">
+              Click on a ball to select it, click again to remove it. Maximum 5 numbers.
+		          <br/>
+		          <div ng-repeat="i in numberArray track by $index" class="fn-ball-wrapper-oracle" style="cursor:hand;cursor:pointer;"><!--  fn-ball-fade -->
+		              <div ng-click="selectBall($index+1)" data="{{$index+1}}" class="fn-ball-{{colorForNumber($index+1)}}" >
+		                {{$index+1}}
+		              </div>
+		          </div>
+		        </div>
+			</div>
+			<h3>CHOOSE YOUR DATES</h3>
+			<div class="fn-product-shape container">
+				<div class="date-picker-holder">
+					<p>Choose the dates you wish to see statistics for:</p>
+					<div>
+		                <p>From</p>
+	                    <input type='text' name="fromField49s" id="fromField49s" />
+					</div><!--
+					--><div>
+						<p>To</p>
+						<input type='text'  name="toField49s" id="toField49s" />
+					</div><!--
+					--><div>
+						<p>or use Quick Selection</p>
+		                <div class="fn-dropdown">
+		                 	<select class="fn-dropdown-select" name="quickSelect49" id="quickSelect49" >
+		                 		<option value=""></option>
+		                 		<option value="last_week">Last Week</option>
+		                 		<option value="last_month">Last Month</option>
+		                 		<option value="last_year">Last Year</option>
+		                   		<option value="since_began">Since draw began</option>
+		                 	</select>
+		                </div>
+					</div>
+					<p>Select draws:</p>
+					<input id="lunchtimeDraw49" name="lunchtimeDraw49"  type="checkbox" checked="checked">
+					<label for="lunchtimeDraw49" style="font-size:1.2em">Lunchtime Draw </label>
+					<input id="teatimeDraw49" name="teatimeDraw49"  type="checkbox" checked="checked">
+					<label for="teatimeDraw49" style="font-size:1.2em">Teatime Draw </label>
+				</div>
+			</div>
+			<!-- <h3>CLICK THE SHOW STATISTICS BUTTON</h3> -->
+            <div class="fn-orange-button ask-oracle-btn" ng-click="show49sStats()">
+                ASK THE FOUNT
+            </div>
+	        <div class="fn-product-shape container" id="stats-container" style="display:none;">
+	        	<!-- <div class="stats-49s" >
+		        	<div class="condensed-bold">
+		              	<span style="font-size:1.6em;">DRAWS TOTAL FOR SELECTED TIME: <span class="fn-accent-text" id="total-draws"> </span></span>
+		            </div>
+	        	</div> -->
+				<div class="fn-results-previous condensed-bold" id="results-49s">
+					<div class="fn-results-top-arc"></div>
+						<div class="legend-49s">
+							<ul>
+								<li></li><li>6 Number Draw</li><li>Booster Ball</li><li>Total Drawn</li>
+							</ul>
+						</div><!--
+						--><div class="results-table-49s">
+							<ul>
+								<li><div class="ball-holder"><div class="ball-orange-ring"></div><div class="fn-ball-blue"></div></div></li><li></li><li></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class="ball-orange-ring"></div><div class="fn-ball-red"></div></div></li><li></li><li></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class="ball-orange-ring"></div><div class="fn-ball-green"></div></div></li><li></li><li></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class="ball-orange-ring"></div><div class="fn-ball-brown"></div></div></li><li></li><li></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class="ball-orange-ring"></div><div class="fn-ball-orange"></div></div></li><li></li><li></li><li></li>
+							</ul>
+						</div>
+					<div class="fn-results-bottom-arc"></div>
+	            </div>
+				<div id="combinations-resoults-49s" class="condensed-bold">
+					<div class="permutations-label">
+		                <span style="font-size:1.6em;">
+		                TOTAL POSSIBLE PERMUTATIONS: <span class="fn-accent-text" id="possible-combinations"></span>
+		                </span>
+					</div><!--
+					--><div style="display:block;width:auto;">
+			            <div class="fn-orange-button ask-oracle-btn" ng-click="show49sPermutations()" id="show49sPermutations">SHOW PERMUTATIONS</div>
+					</div>
+				</div>
+			</div>
+			<div class="permutations-wrapper">
+				<h3>PERMUTATIONS</h3>
+				<div class="fn-product-shape container">
+					<div class="permutations-container">
+						<table>
+							<thead>
+								<tr>
+									<th></th>
+									<th>NUMBERS</th>
+									<th>TOTAL DRAWN</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="tab-pane fade" id="product_2">
+		<div class="fn-section-container fn-IL">
+			<h3>PICK UP TO 5 NUMBERS</h3>
+			<div class="fn-product-shape container" >
+		        <div style="padding:20px;">
+		          <p>Click on a ball to select it, click again to remove it. Maximum 5 numbers.<p>
+		          <div ng-repeat="i in ilbNumberArray track by $index" class="fn-ball-wrapper-oracle">
+		              <div ng-click="ilbSelectBall($index+1)" data-ilb="{{$index+1}}" class="fn-ball-green" style="cursor:hand;cursor:pointer;">
+		                {{$index+1}}
+		              </div>
+		          </div>
+		      </div>
+			</div>
+			<h3>CHOOSE YOUR DATES</h3>
+			<div class="fn-product-shape container">
+				<div class="date-picker-holder">
+					<p>Choose the dates you wish to see statistics for:</p>
+					<div>
+		                <p>From</p>
+	                    <input type='text' name="fromFieldILB" id="fromFieldILB" />
+					</div><!--
+					--><div>
+						<p>To</p>
+						<input type='text'  name="toFieldILB" id="toFieldILB" />
+					</div><!--
+					--><div>
+						<p>or use Quick Selection</p>
+		                <div class="fn-dropdown">
+		                 	<select class="fn-dropdown-select" name="quickSelectILB" id="quickSelectILB" >
+		                 		<option value=""></option>
+		                 		<option value="last_week">Last Week</option>
+		                 		<option value="last_month">Last Month</option>
+		                 		<option value="last_year">Last Year</option>
+		                   		<option value="since_began">Since draw began</option>
+		                 	</select>
+		                </div>
+					</div>
+					<p>Select draws:</p>
+					<input id="mainDrawILB" name="mainDrawILB"  type="checkbox" checked="checked">
+					<label for="mainDrawILB" style="font-size:1.2em">Main Draw </label>
+					<input id="secondDrawILB" name="secondDrawILB"  type="checkbox" checked="checked">
+					<label for="secondDrawILB" style="font-size:1.2em">2nd Draw </label>
+					<input id="thirdDrawILB" name="thirdDrawILB"  type="checkbox" checked="checked">
+					<label for="thirdDrawILB" style="font-size:1.2em">3rd Draw </label>
+
+				</div>
+			</div>
+			<!-- <h3>CLICK THE SHOW STATISTICS BUTTON</h3> -->
+            <div class="fn-green-button ask-oracle-btn"  ng-click="showILBStats()">
+                ASK THE FOUNT
+            </div>
+  	        <div class="fn-product-shape container" id="ilb-stats-container" style="display:none;">
+	        	<!-- <div class="stats-ilb" >
+		        	<div class="condensed-bold">
+		              	<span style="font-size:1.6em;">DRAWS TOTAL FOR SELECTED TIME: <span class="fn-accent-text" id="ilb-total-draws"> </span></span>
+		            </div>
+	        	</div> -->
+				<div class="fn-results-previous condensed-bold" id="results-ilb">
+					 <div class="fn-results-top-arc"></div>
+						<div class="legend-ilb">
+							<ul>
+								<li></li><li>6 Number Draw</li><li>Bonus Ball</li><li>Total Drawn</li>
+							</ul>
+						</div><!--
+						--><div class="results-table-ilb">
+							<ul>
+								<li><div class="ball-holder"><div class="ball-orange-ring"></div><div class="fn-ball-blue"></div></div></li><li></li><li></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class="ball-orange-ring"></div><div class="fn-ball-red"></div></div></li><li></li><li></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class="ball-orange-ring"></div><div class="fn-ball-green"></div></div></li><li></li><li></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class="ball-orange-ring"></div><div class="fn-ball-brown"></div></div></li><li></li><li></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class="ball-orange-ring"></div><div class="fn-ball-orange"></div></div></li><li></li><li></li><li></li>
+							</ul>
+						</div>
+					 <div class="fn-results-bottom-arc"></div>
+	            </div>
+				<div id="combinations-resoults-ilb" class="condensed-bold">
+					<div class="permutations-label">
+		                <span style="font-size:1.6em;">
+		                TOTAL POSSIBLE PERMUTATIONS: <span class="fn-accent-text" id="ilb-possible-combinations"></span>
+		                </span>
+					</div><!--
+					--><div style="display:block;width:auto;">
+			            <div class="fn-green-button ask-oracle-btn" ng-click="showILBPermutations()" id="showILBPermutations">SHOW PERMUTATIONS</div>
+					</div>
+				</div>
+			</div>
+			<div class="ilb-permutations-wrapper">
+				<h3>PERMUTATIONS</h3>
+				<div class="fn-product-shape container">
+					<div class="permutations-container">
+						<table>
+							<thead>
+								<tr>
+									<th></th>
+									<th>NUMBERS</th>
+									<th>TOTAL DRAWN</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="tab-pane fade" id="product_3">
+
+    <!-- <div class="fn-section-container fn-VHR"> -->
+    <div class="fn-section-container fn-VHR">
+			<h3>FIND YOUR VIRTUAL HORSE NAME</h3>
+			<div class="fn-product-shape container">
+        <div style="padding:20px;">
+        <p>Name</p>
+        <div class="vhrName">
+                   <input autocomplete="off" class="nameVHR" name="nameVHR" id="nameVHR" ng-change="getHorseNames()" ng-model="horse_name"/>
+                   <ul id="horse_names_results"></ul>
+                 </div>
+        </div>
+      </div>
+    <!-- </div> -->
+			<h3>CHOOSE YOUR DATES</h3>
+			<div class="fn-product-shape container">
+				<div class="date-picker-holder">
+					<p>Choose the dates you wish to see statistics for:</p><!--
+					--><div>
+		                <p>From</p>
+	                    <input type='text' name="fromFieldVHR" id="fromFieldVHR" />
+					</div><!--
+					--><div>
+						<p>To</p>
+						<input type='text'  name="toFieldVHR" id="toFieldVHR" />
+					</div><!--
+					--><div>
+						<p>or use Quick Selection</p>
+		                <div class="fn-dropdown">
+		                 	<select class="fn-dropdown-select" name="quickSelectVHR" id="quickSelectVHR" >
+		                 		<option value=""></option>
+		                 		<option value="last_week">Last Week</option>
+		                 		<option value="last_month">Last Month</option>
+		                 		<option value="last_year">Last Year</option>
+		                   		<option value="since_began">All Time</option>
+		                 	</select>
+		                </div>
+					</div><!--
+					-->
+				</div>
+			</div>
+			<div class="fn-rapido-red-button ask-oracle-btn vhr-button" ng-click="showVHRStats()">
+                ASK THE FOUNT
+            </div>
+            <div id="virtual-horse-summary">
+				<h3>VIRTUAL HORSE SUMMARY</h3>
+				<div class="fn-product-shape container clearfix">
+					<div id="horse-title">
+						<h2></h2>
+						<p></p>
+					</div>
+					<div id="vhr-results" >
+		                <div class="fn-results-top-arc"></div>
+		         		<div class="fn-content" >
+		         			<div class="last-race">
+		         				<div>
+		         					<p class="last-race-text">LAST RACE</p>
+		         					<p id="last-race-location" class="fn-result-accent-text"></p>
+		         					<p class="fn-result-accent-text"></p>
+		         				 	<hr/>
+		         					<div id="last-race-position" class="fn-vhr-racing-place"></div>
+                       <div id="vhr-not-placed" class="vhr-last-racing-odds">NOT PLACED</div>
+		         				 	<div class="vhr-last-racing-odds">ODDS <span></span></div>
+		         				</div>
+		         			</div><!--
+		         			--><div class="horse-results"  >
+		         				<ul>
+		         					<li><div class="fn-vhr-racing-place">1<sup>st</sup></div></li><!--
+		         					--><li><div class="fn-vhr-racing-place">2<sup>nd</sup></div></li><!--
+		         					--><li><div class="fn-vhr-racing-place">3<sup>rd</sup></div></li><!--
+		         					--><li><div class="fn-vhr-racing-place">4<sup>th</sup></div></li><!--
+		         					--><li></li>
+		         				</ul><!--
+		         				--><ul>
+		         					<li>1st Place Finish</li><!--
+		         					--><li>2nd Place Finish</li><!--
+		         					--><li>3rd Place Finish</li><!--
+		         					--><li>4th Place Finish</li><!--
+		         					--><li>Total</li>
+		         				</ul><!--
+		         				--><ul>
+		         					<li></li><!--
+		         					--><li>0</li><!--
+		         					--><li>0</li><!--
+		         					--><li>0</li><!--
+		         					--><li>0</li>
+		         				</ul>
+		         			</div>
+		         		</div>
+		                <div class="fn-results-bottom-arc"></div>
+		            </div>
+				</div>
+			</div>
+			<div id="virtual-horse-breakdown-container">
+				<h3>VIRTUAL HORSE BREAKDOWN</h3>
+		        <div class="fn-product-shape container">
+		        	<div id="virtual-horse-breakdown">
+			        	<div class="vhr-results-table-header">
+							<ul>
+			        			<li>DATE</li><!--
+			        			--><li>TRACK</li><!--
+			        			--><li>TIME</li><!--
+			        			--><li>POSITION</li><!--
+			        			--><li>NUMBER</li><!--
+			        			--><li>ODDS</li><!--
+			        			--><li>FAV</li>
+			        		</ul>
+			        	</div><!--
+			        	--><div class="vhr-results-table-body">
+			        		<table>
+			        		</table>
+			        	</div>
+		        	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="tab-pane fade" id="product_4">
+		<div class="fn-section-container fn-VGR">
+
+      <h3>FIND YOUR VIRTUAL GREYHOUND NAME</h3>
+			<div class="fn-product-shape container">
+        <div style="padding:20px;">
+        <p>Name</p>
+        <div class="vgrName">
+                   <input autocomplete="off" class="nameVGR" name="nameVGR" id="nameVGR" ng-change="getDogNames()" ng-model="dog_name"/>
+                   <ul id="dog_names_results"></ul>
+                </div>
+        </div>
+      </div>
+
+
+			<h3>CHOOSE YOUR DATES</h3>
+			<div class="fn-product-shape container">
+				<div class="date-picker-holder">
+					<p>Choose the dates you wish to see statistics for:</p><!--
+					--><div>
+		                <p>From</p>
+	                    <input type='text' name="fromFieldVGR" id="fromFieldVGR" />
+					</div><!--
+					--><div>
+						<p>To</p>
+						<input type='text'  name="toFieldVGR" id="toFieldVGR" />
+					</div><!--
+					--><div>
+						<p>or use Quick Selection</p>
+		                <div class="fn-dropdown">
+		                 	<select class="fn-dropdown-select" name="quickSelectVGR" id="quickSelectVGR" >
+		                 		<option value=""></option>
+		                 		<option value="last_week">Last Week</option>
+		                 		<option value="last_month">Last Month</option>
+		                 		<option value="last_year">Last Year</option>
+		                   		<option value="since_began">All Time</option>
+		                 	</select>
+		                </div>
+					</div>
+			</div>
+    </div>
+			<div class="fn-rapido-red-button ask-oracle-btn vgr-button" ng-click="showVGRStats()">
+                ASK THE FOUNT
+            </div>
+            <div id="virtual-dog-summary">
+				<h3>VIRTUAL GREYHOUND SUMMARY</h3>
+				<div class="fn-product-shape container clearfix">
+					<div id="dog-title">
+						<h2></h2>
+					</div>
+					<div id="vgr-results" >
+		                <div class="fn-results-top-arc"></div>
+		         		<div class="fn-content" >
+		         			<div class="last-race">
+		         				<div>
+		         					<p class="last-race-text">LAST RACE</p>
+		         					<p class="fn-result-accent-text" id="vgr-last-race-location"></p>
+		         					<p class="fn-result-accent-text">16:52 - 14/03/2015</p>
+		         				 	<hr/>
+		         					<div class="fn-vgr-racing-place" id="vgr-last-race-position"></div>
+                       <div id="vgr-not-placed" class="vgr-last-racing-odds">NOT PLACED</div>
+		         				 	<div class="vgr-last-racing-odds">ODDS <span></span></div>
+		         				</div>
+		         			</div><!--
+		         			--><div class="dog-results">
+		         				<ul>
+		         					<li><div class="fn-vgr-racing-place">1<sup>st</sup></div></li><!--
+		         					--><li><div class="fn-vgr-racing-place">2<sup>nd</sup></div></li><!--
+		         					--><li><div class="fn-vgr-racing-place">3<sup>th</sup></div></li><!--
+		         					--><li></li>
+		         				</ul><!--
+		         				--><ul>
+		         					<li>1st Place Finish</li><!--
+		         					--><li>2nd Place Finish</li><!--
+		         					--><li>3rd Place Finish</li><!--
+		         					--><li>Total</li>
+		         				</ul><!--
+		         				--><ul>
+		         					<li></li><!--
+		         					--><li>0</li><!--
+		         					--><li>0</li><!--
+		         					--><li>0</li>
+		         				</ul>
+		         			</div>
+		         		</div>
+		                <div class="fn-results-bottom-arc"></div>
+		            </div>
+				</div>
+			</div>
+			<div id="virtual-dog-breakdown-container">
+				<h3>VIRTUAL GREYHOUND BREAKDOWN</h3>
+		        <div class="fn-product-shape container">
+		        	<div id="virtual-dog-breakdown">
+			        	<div class="vgr-results-table-header">
+							<ul>
+			        			<li>DATE</li><!--
+			        			--><li>TRACK</li><!--
+			        			--><li>TIME</li><!--
+			        			--><li>POSITION</li><!--
+			        			--><li>NUMBER</li><!--
+			        			--><li>ODDS</li><!--
+			        			--><li>FAV</li>
+			        		</ul>
+			        	</div><!--
+			        	--><div class="vgr-results-table-body">
+			        		<table>
+			        		</table>
+			        	</div>
+		        	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="tab-pane fade" id="product_5">
+		<div class="fn-section-container fn-rapido">
+			<h3>PICK UP TO 10 NUMBERS</h3>
+			<div class="fn-product-shape container" >
+		        <div style="padding:20px;">
+		          <p>Click on a number to select it, click again to remove it. Maximum 10 numbers.<p>
+		          <div ng-repeat="i in rapidoNumberArray track by $index" class="fn-ball-wrapper-oracle" style="cursor:hand;cursor:pointer;">
+		              <div ng-click="rapidoSelectBall($index+1)" data-rapido="{{$index+1}}" class="fn-coin-{{getCoinColor($index+1)}}" >
+		                {{$index+1}}
+		              </div>
+		          </div>
+		      </div>
+			</div>
+			<h3>CHOOSE YOUR DATES</h3>
+			<div class="fn-product-shape container">
+				<div class="date-picker-holder">
+					<p>Choose the dates you wish to see statistics for:</p>
+					<div>
+		                <p>From</p>
+	                    <input type='text' name="fromFieldRapido" id="fromFieldRapido" />
+					</div><!--
+					--><div>
+						<p>To</p>
+						<input type='text'  name="toFieldRapido" id="toFieldRapido" />
+					</div><!--
+					--><div>
+						<p>or use Quick Selection</p>
+		                <div class="fn-dropdown">
+		                 	<select class="fn-dropdown-select" name="quickSelectRapido" id="quickSelectRapido" >
+		                 		<option value=""></option>
+		                 		<option value="last_week">Last Week</option>
+		                 		<option value="last_month">Last Month</option>
+		                 		<option value="last_year">Last Year</option>
+		                   		<option value="since_began">Since draw began</option>
+		                 	</select>
+		                </div>
+					</div>
+<!--
+					<p>Select draws:</p>
+					<input id="heads" name="heads"  type="checkbox" checked="checked">
+					<label for="heads" style="font-size:1.2em">Heads </label>
+					<input id="tails" name="tails"  type="checkbox" checked="checked">
+					<label for="tails" style="font-size:1.2em">Tails </label>
+					<input id="level" name="level"  type="checkbox" checked="checked">
+					<label for="level" style="font-size:1.2em">Level </label> -->
+				</div>
+			</div>
+			<!-- <h3>CLICK THE SHOW STATISTICS BUTTON</h3> -->
+            <div class="fn-rapido-red-button ask-oracle-btn" ng-click="showRapidoStats()" >
+                ASK THE FOUNT
+            </div>
+  	        <div class="fn-product-shape container" id="rapido-stats-container" style="display:none;" >
+	        	<!-- <div class="stats-rapido" >
+		        	<div class="condensed-bold">
+		              	<span style="font-size:1.6em;">DRAWS TOTAL FOR SELECTED TIME: <span class="fn-accent-text" id="rapido-total-draws"> </span></span>
+		            </div>
+	        	</div> -->
+				<div class="fn-results-previous condensed-bold" id="results-rapido">
+					 <div class="fn-results-top-arc"></div>
+						<div class="legend-rapido">
+							<ul>
+								<li></li><li>Total Drawn</li>
+							</ul>
+						</div><!--
+						--><div class="results-table-rapido">
+							<ul>
+								<li><div class="ball-holder"><div class=" "></div><div class=""></div></div></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class=" "></div><div class=""></div></div></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class=" "></div><div class=""></div></div></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class=" "></div><div class=""></div></div></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class=" "></div><div class=""></div></div></li><li></li>
+							</ul>
+						</div>
+						<div class="legend-rapido rapido-legend-second">
+							<ul>
+								<li></li><li>Total Drawn</li>
+							</ul>
+						</div><!--
+						--><div class="results-table-rapido2">
+							<ul>
+								<li><div class="ball-holder"><div class=" "></div><div class=""></div></div></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class=" "></div><div class=""></div></div></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class=" "></div><div class=""></div></div></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class=" "></div><div class=""></div></div></li><li></li>
+							</ul><!--
+							--><ul>
+								<li><div class="ball-holder"><div class=" "></div><div class=""></div></div></li><li></li>
+							</ul>
+						</div>
+					 <div class="fn-results-bottom-arc"></div>
+	            </div>
+				<!-- <div style="padding:20px;" class="stats-rapido condensed-bold">
+	                <span style="font-size:1.6em;">
+	                	TOTAL POSSIBLE PERMUTATIONS: <span class="fn-accent-text" id="rapido-possible-combinations"></span>
+	                </span>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>

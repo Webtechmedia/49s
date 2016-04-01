@@ -1,0 +1,77 @@
+<div class="container fn-page-container fn-49s">
+	<div class="fn-small-hero-wrapper" >
+	    <div id="smallCarousel" class="carousel slide" data-ride="carousel" >
+	      <!-- Indicators -->
+	      <ul class="carousel-indicators">
+	      </ul>
+	      <div class="carousel-inner" role="listbox" >
+	      </div>
+	    </div>
+		<div class="fn-hero-small container" style="pointer-events:none;" ></div>
+	</div>
+    <section ng-controller="FNFNMenuController" ng-include src="'partials/49s/49s_menu.html'">
+    </section>
+
+
+    <div class ="fn-heading-concave container">
+        <H2 class="fn-section-header" style="padding-top:10px;">HOT & COLD BALLS</H2>
+    </div>
+
+
+    <div class="fn-section-container fn-49s-hot-cold">
+        <div style='overflow:hidden'>
+            <div class="fn-left-block-text">
+                <p ng-show="totalDrawn > 0">
+                    Below is a breakdown of all 49 balls drawn to date.  There have been <strong>{{totalDrawn}}</strong> draws between<br><strong>{{startDate}}</strong> and <strong>{{endDate}}</strong>.
+                </p>
+                <p>
+                  You can sort the contents of the table in ascending or descending order by clicking on each heading.
+								</p>
+								<p>
+                    Find more detailed statistics on <a ng-href="../thefount">The Fount</a> page.
+                </p>
+            </div>
+
+            <div class="fn-right-block-section">
+                <table >
+                    <tr>
+                        <td class="fn-hot-bg fn-hot-info-star" style=""><img src="../../img/icons/ic-hot-star.png"></td>
+                        <td class="fn-hot-info-text">The hottest ball by total drawn.</td>
+                    </tr>
+                    <tr>
+                        <td class="fn-cold-bg fn-hot-info-star"><img src="../../img/icons/ic-cold-star.png"></td>
+                        <td class="fn-hot-info-text">The coldest ball by total drawn.</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <div style="clear:both;margin-top:30px;">
+            <div class="fn-results-list-header" style="margin-bottom:5px;">
+              <ul class="navbar-nav container">
+								<li class="fn-results-list-hlabel" ng-class="{'fn-results-list-hlabel-selected':headerIndex==0}" style="width:16%;"><a ng-click="sortByType(0)"><span class="fn-results-list-long-text">BALL </span>NUM<span class="fn-results-list-long-text">BER</span></a></li>
+                <li class="fn-results-list-hlabel" ng-class="{'fn-results-list-hlabel-selected':headerIndex==1}" style="width:28%;"><a ng-click="sortByType(1)">6 NUM<span class="fn-results-list-long-text">BER DRAW</span></a></li>
+                <li class="fn-results-list-hlabel" ng-class="{'fn-results-list-hlabel-selected':headerIndex==2}" style="width:28%;"><a ng-click="sortByType(2)">BOOSTER<span class="fn-results-list-long-text"> BALL</span></a></li>
+                <li class="fn-results-list-hlabel" ng-class="{'fn-results-list-hlabel-selected':headerIndex==3}" style="width:28%;"><a ng-click="sortByType(3)">TOTAL<span class="fn-results-list-long-text"> DRAWN</span></a></li>
+              </ul>
+            </div>
+            <ul class="fn-results-list">
+            <li ng-repeat="ball in ballStats" ng-class="{'fn-hot-bg': hottestNum == ball.number, 'fn-cold-bg': coldestNum == ball.number}">
+              <ul class="navbar-nav container">
+                <li class="fn-hot-cold-results-list-hlabel" style="width:16%;text-align:center">
+                    <div class="fn-ball-{{colorForNumber(ball.number)}}" style="width:40px;height:40px;margin-left:30%;font-size:1.2em;float:left;line-height:40px;">{{ball.number}}</div>
+                    <img src="../../img/icons/ic-hot-star.png" class="fn-hot-cold-row-star" ng-show="hottestNum == ball.number">
+                    <img src="../../img/icons/ic-cold-star.png" class="fn-hot-cold-row-star" ng-show="coldestNum == ball.number">
+                </li>
+                <li class="fn-hot-cold-results-list-hlabel" style="width:28%;">{{ball.main}}</li>
+                <li class="fn-hot-cold-results-list-hlabel" style="width:28%;">{{ball.bonus}}</li>
+                <li class="fn-hot-cold-results-list-hlabel" style="width:28%;">{{ball.number_total}}</li>
+              </ul>
+            </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+</div>

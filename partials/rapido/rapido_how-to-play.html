@@ -1,0 +1,175 @@
+<div class="container fn-page-container fn-rapido">
+	<div class="fn-small-hero-wrapper" >
+	    <div id="smallCarousel" class="carousel slide" data-ride="carousel" >
+	      <!-- Indicators -->
+	      <ul class="carousel-indicators">
+	      </ul>
+	      <div class="carousel-inner" role="listbox" >
+	      </div>
+	    </div>
+		<div class="fn-hero-small container" style="pointer-events:none;" ></div>
+	</div>
+
+	<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
+	            <h4 class="modal-title" id="modalLabel">HOW TO PLAY</h4>
+	            </div>
+				<video id="how_to_play_video" class="video-js vjs-default-skin"  controls preload="none" width="auto" height="auto" style="width:100%"
+			        data-setup="{}">
+			    	<source src="/uploads/videos/ILB_how_to_play_main_10.mp4" type='video/mp4' />
+			    	<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+			  	</video>
+	    	</div>
+	  	</div>
+	</div>
+
+    <section ng-controller="FNRapidoMenuController" ng-include src="'partials/rapido/rapido_menu.html'">
+    </section>
+
+
+    <div class ="fn-heading-concave container">
+        <H3 class="fn-section-header" style="padding-top:10px;">HOW TO PLAY</H3>
+    </div>
+
+
+    <div class="fn-section-container" style="display: inline-block;">
+
+        <div class="fn-left-block-text">
+            <p>
+							Rapido is a fast action numbers draw that takes place most mornings. 20 numbers are drawn from 80 and you can choose to match up to 10 of these. You don’t have to match all of your selection to win – for example, choose 5 numbers, match only 3 and for your £1 play you still win £2.
+            </p>
+            <p>
+							Just choose your numbers and write them on a slip, choose the draw you wish to play on. If you choose 5 numbers from the 20 drawn, for a £1 stake:
+            </p>
+            <p>
+                Match 5 you win £540<br/>
+                Match 4 you win £20<br/>
+                Match 3 you win £2<br/>
+            </p>
+            <p>
+							You can increase your chances of winning with a 'Heads or Tails' bet by choosing whether you think:
+            </p>
+            <p>
+                More than 10 of the 20 drawn will be in numbers 1-40 (heads)<br/>
+                More than 10 of the 20 drawn will be in numbers 41-80 (tails)<br/>
+                Or that 10 will be drawn in numbers 1-40 and 10 in numbers 41-80 (level)<br/>
+            </p>
+
+
+
+        </div>
+
+        <div class="fn-bethere-promo-container fn-right-block-section">
+					<h4>HOW TO FILL IN YOUR BETTING SLIP</h4>
+            <div class="fn-bethere-promo-item" style="width:100%;margin:0;">
+                <img src={{thumbSrc}} class="fn-video-thumb" >
+                <a href="#"    data-toggle="modal" data-target="#howToPlayMainVideoModal" ng-click="playMainVideo()">
+                    <div class="fn-promo-section-cover">
+                    </div>
+                </a>
+            </div>
+			<div class="modal fade" id="howToPlayMainVideoModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
+			            <h4 class="modal-title" id="modalLabel">HOW TO FILL IN YOUR BETTING SLIP</h4>
+			            </div>
+
+						<video id="how_to_play_main_video" class="video-js vjs-default-skin"  controls preload="none" width="auto" height="auto" style="width:100%"
+					        data-setup="{}">
+					    	<source src="{{videoSrc}}" type='video/mp4' />
+					    	<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+					  	</video>
+			    	</div>
+			  	</div>
+			</div>
+        </div>
+    </div>
+
+    <div class="fn-section-container">
+        <div>
+            <h3>RAPIDO RULES</h3>
+						The Rapido rules are just a guide, so you need to check the rules of the bookmaker that you place your bet with as they might be different. <a ng-href="../rapido/rules">Read Rules</a>
+
+        </div>
+        <hr>
+
+        <div>
+
+
+
+
+					<h3>PICK AND MATCH</h3>
+						Simply enter your stake below, choose how many numbers you matched and click the WIN AMOUNT button to see how much you could win on Rapido.
+
+            <div class="fn-product-shape container" style="text-align:center;">
+
+                <form novalidate >
+                    <div class="fn-play-match-input-container">
+                        <label for="stakeField">Your Stake</label>
+                        <span class="fn-currency-symbol"></span>
+                        <input id="stakeField" type="text" placeholder="1.00" style="width:100%" ng-model="stakeOptions.stake">
+                    </div>
+
+                    <div class="fn-play-match-input-container">
+                        <label for="chosenField">Numbers Chosen</label>
+                        <div class="fn-dropdown fn-date-dropdown-month fn-play-match-input">
+                            <select class="fn-dropdown-select" id="chosenField" ng-model="stakeOptions.numChosen" ng-options="opt as opt.label for opt in chosenAmounts"></select>
+                        </div>
+                    </div>
+
+                    <div class="fn-play-match-input-container">
+                        <label for="numbersField">Numbers Matched</label>
+                        <div class="fn-dropdown fn-date-dropdown-month fn-play-match-input">
+                            <select class="fn-dropdown-select" id="numbersField" ng-model="stakeOptions.numBalls" ng-options="opt as opt.label for opt in ballAmounts"></select>
+                        </div>
+                    </div>
+
+                    <a href="#" ng-click="update(stakeOptions)">
+                        <div class="fn-rapido-red-button" style="display: inline-block;">
+													WIN AMOUNT
+                        </div>
+                    </a>
+                </form>
+
+                <div class="fn-results-previous" style="height:auto;color:white;">
+                    <div class="fn-results-top-arc"></div>
+                    <div class="fn-results-bottom-arc"></div>
+
+										<div class="fn-playmatch-results condensed-bold" style="font-size:1.6em;">
+												<div class="fn-playmatch-results-left">
+													<span class="fn-accent-text">HEADS / TAILS</span>
+													<br/>
+													<span class="fn-accent-text" style="font-size:0.8em">EVENS</span>
+													<br/>
+													<span>£{{headsTailsWinnings}}</span>
+                            </div>
+														<div class="fn-playmatch-results-or">
+															<span class="fn-accent-text">PICK & MATCH</span>
+															<br/>
+															<span style="font-size:2em;">£{{winnings}}</span>
+                            </div>
+														<div class="fn-playmatch-results-right">
+															<span class="fn-accent-text">LEVEL</span>
+															<br/>
+															<span class="fn-accent-text" style="font-size:0.8em">3/1</span>
+															<br/>
+															<span>£{{levelsWinnings}}</span>
+														</div>
+											</div>
+											<div style="padding-bottom:10px">
+												Please check payout limits with bookmakers.
+											</div>
+                </div>
+                <p style="padding:0 40px; text-align:center;">
+                    <br/>
+										Winning amounts include your stake.  Bet types and payouts may vary so please check with your local bookmaker.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
