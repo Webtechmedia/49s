@@ -2,23 +2,37 @@
 
 class Num_games_model extends CI_Model
 {
+
+    private static $xcache = null;
+
     var $cache = null;
  
     public function __construct()
     {
-        $this->cache = new Memcached();
-        $server_endpoint = "fourtynines-cache2.efdy84.0001.euw1.cache.amazonaws.com";
-        $server_endpoint2 = "fourtynines-cache2.efdy84.0002.euw1.cache.amazonaws.com";
-        $server_endpoint3 = "fourtynines-cache2.efdy84.0003.euw1.cache.amazonaws.com";
-        $server_port = 11211;
-        $this->cache->setOptions(array(
-            Memcached::OPT_CLIENT_MODE=>true, 
-            Memcached::DYNAMIC_CLIENT_MODE=>true,  
-            Memcached::OPT_TCP_NODELAY => true,
-            Memcached::OPT_BINARY_PROTOCOL => true));
-        $this->cache->addServer($server_endpoint, $server_port);
-        $this->cache->addServer($server_endpoint2, $server_port);
-        $this->cache->addServer($server_endpoint3, $server_port);
+
+        //we make sure we have only one instance of memcached per request
+        if(!self::$xcache) {
+            self::$xcache = new Memcached();
+
+            //set options
+            self::$xcache->setOptions(array(
+                Memcached::OPT_CLIENT_MODE=>true,
+                Memcached::DYNAMIC_CLIENT_MODE=>true,
+                Memcached::OPT_TCP_NODELAY => true,
+                Memcached::OPT_BINARY_PROTOCOL => true));
+
+            //add servers
+            $server_endpoint = "fourtynines-cache2.efdy84.0001.euw1.cache.amazonaws.com";
+            $server_endpoint2 = "fourtynines-cache2.efdy84.0002.euw1.cache.amazonaws.com";
+            $server_endpoint3 = "fourtynines-cache2.efdy84.0003.euw1.cache.amazonaws.com";
+            $server_port = 11211;
+            self::$xcache->addServer($server_endpoint, $server_port);
+            self::$xcache->addServer($server_endpoint2, $server_port);
+            self::$xcache->addServer($server_endpoint3, $server_port);
+        }
+
+        //get a per model reference to Memcached
+        $this->cache = self::$xcache;
 
         parent::__construct();
     }
@@ -1112,7 +1126,7 @@ class Num_games_model extends CI_Model
     }
 
     public function get_race_locations($game_type, $date_from, $date_to){
-        $memcache_key = "{$game_type}_race_locations_{$date_from}_{$date_to}_{$location}";
+        $memcache_key = "{$game_type}_race_locations_{$date_from}_{$date_to}";
         $result = $this->cache->get($memcache_key);
         if( !$result || empty($result) )
         {
