@@ -699,9 +699,14 @@ class Num_games_model extends CI_Model
 
     public function get_games_date_vhr_vgr($game_type,$order){
 
-    	if($order=='asc'){
+        $key = "get_games_date_vhr_vgr_{$game_type}_{$order}";
+        $result = $this->cache->get($key);
 
-    		$sql="SELECT
+        if(!$result) {
+
+            if ($order == 'asc') {
+
+                $sql = "SELECT
 				    max(t_event_type.date) as date
 				FROM
 				    t_event_type
@@ -712,10 +717,10 @@ class Num_games_model extends CI_Model
 				        join
 				    t_result ON t_events.id = t_result.event_id
 
-				where t_event_type.category='".$game_type."' and settlingstatus not in ('V','','null')";
-    	}else{
+				where t_event_type.category='" . $game_type . "' and settlingstatus not in ('V','','null')";
+            } else {
 
-    		$sql="SELECT
+                $sql = "SELECT
 				    min(t_event_type.date) as date
 				FROM
 				    t_event_type
@@ -726,11 +731,15 @@ class Num_games_model extends CI_Model
 				        join
 				    t_result ON t_events.id = t_result.event_id
 
-				where t_event_type.category='".$game_type."'   ";
-    	}
+				where t_event_type.category='" . $game_type . "'   ";
+            }
 
-    	$query = $this->db->query($sql);
-    	$result = $query->result();
+            $query = $this->db->query($sql);
+            $result = $query->result();
+
+            $this->cache->set($key,$result,60);
+        }
+
     	return $result;
     }
 
