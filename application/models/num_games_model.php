@@ -51,7 +51,7 @@ class Num_games_model extends CI_Model
         }
 
         $value = $this->cache->get($key);
-        return '['.$value.']';
+        return $key.'=['.$value.']';
     }
 
     public function get_asset($field,$random = false){
