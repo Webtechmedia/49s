@@ -10577,7 +10577,7 @@ FN.App.run(['$rootScope', '$location', '$window', '$timeout', function($rootScop
 
 
     $rootScope.showVersion = true;
-    $rootScope.versionNum = "v0.8.17";
+    $rootScope.versionNum = "v0.8.18";
     $rootScope.location = $location;
     var ip = location.host;
     //49s live

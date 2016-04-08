@@ -15,11 +15,11 @@ class Num_games_model extends CI_Model
             self::$xcache = new Memcached();
 
             //set options
-//            self::$xcache->setOptions(array(
-//                Memcached::OPT_CLIENT_MODE=>true,
-//                Memcached::DYNAMIC_CLIENT_MODE=>true,
-//                Memcached::OPT_TCP_NODELAY => true,
-//                Memcached::OPT_BINARY_PROTOCOL => true));
+            self::$xcache->setOptions(array(
+                Memcached::OPT_CLIENT_MODE=>true,
+                Memcached::DYNAMIC_CLIENT_MODE=>true,
+                Memcached::OPT_TCP_NODELAY => true,
+                Memcached::OPT_BINARY_PROTOCOL => true));
 
             //add servers
             $server_endpoint = "fourtynines-cache2.efdy84.0001.euw1.cache.amazonaws.com";
