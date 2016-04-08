@@ -43,10 +43,11 @@ class Num_games_model extends CI_Model
     }*/
 
     public function cache_test() {
-        $key = "abcdefg";
+        $game_type = 1;
+        $key = "abcdefg{$game_type}";
         $value = $this->cache->get($key);
         if(!$value) {
-            $this->cache->set($key,time(),5);
+            $this->cache->set($key,time(),2);
         }
 
         $value = $this->cache->get($key);
