@@ -11,6 +11,14 @@ class Games extends MX_Controller
         $this->JsonOutput->execute();
     }
 
+	public function get_testcache() {
+		$this->load->model('Num_games_model');
+
+		$val = $this->Num_games_model->cache_test();
+
+		die($val);
+	}
+
     public function get_previous(){
     	header('Access-Control-Allow-Origin: *');
     	header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");

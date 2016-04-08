@@ -42,6 +42,17 @@ class Num_games_model extends CI_Model
         parent::__destruct();
     }*/
 
+    public function cache_test() {
+        $key = "abcdefg";
+        $value = $this->cache->get($key);
+        if(!$value) {
+            $this->cache->set($key,time(),5);
+        }
+
+        $value = $this->cache->get($key);
+        return $value;
+    }
+
     public function get_asset($field,$random = false){
         $memcache_key = "get_asset_{$field}_{$random}";
         $result = $this->cache->get($memcache_key);
