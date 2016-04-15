@@ -6564,7 +6564,7 @@ FN.Controllers.controller('FNHomeController', [
 
       $scope.setTitle("49's");
 
- 
+ setTimeout(function(){
   		$.ajax({
 			url: $scope.baseURL+'/img/get_image_urls',
 			type: 'post',
@@ -6578,7 +6578,7 @@ FN.Controllers.controller('FNHomeController', [
 				// alert('Connection error! Please try again.');
 			}
 		});
-     
+    },500);
       
       
      
