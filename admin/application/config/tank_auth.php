@@ -127,8 +127,8 @@ $config['captcha_case_sensitive'] = TRUE;
 |--------------------------------------------------------------------------
 */
 $config['use_recaptcha'] = TRUE;
-$config['recaptcha_public_key'] = '6LcGCwATAAAAAE5Mv4X10W3NojId_84bNXiQ4e1c';
-$config['recaptcha_private_key'] = '6LcGCwATAAAAAOpny51nvV_d5aEdZ3rjqQiBJ7Hn';
+$config['recaptcha_public_key'] = '6LfWax0TAAAAADutkvpceTLZtgD_rKPjHIcX4NQR';
+$config['recaptcha_private_key'] = '6LfWax0TAAAAALNbHNmJ1F5c9uvo24tVAvA9LtfM';
 $config['enable_ssl_recaptcha'] = FALSE;
 
 /*
