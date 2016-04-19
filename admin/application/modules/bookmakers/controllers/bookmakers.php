@@ -142,8 +142,10 @@ class Bookmakers extends CI_Controller
 		}
 		$data['title'] = 'Bookmakers Import';
 
-		$config['upload_path'] = './../incomming/bookmakers/';
-		$config['allowed_types'] = 'xlsx';
+		//$config['upload_path'] = './../incomming/bookmakers/';
+		// Relative path seems to be not working
+		$config['upload_path'] = '/var/www/html/admin/uploads_assets/';
+		$config['allowed_types'] = 'xlsx|xls';
 		$config['max_size']	= '2000';
 
 		$this->load->library('upload', $config);
