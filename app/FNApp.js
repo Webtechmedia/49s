@@ -5940,11 +5940,22 @@ FN.Controllers.controller('FNBettingShopController', [
     			var addresString='';
 
     			if ('postcode' in address && address.postcode.length>1) { addresString += address.postcode; }
-    			 addresString+=',';
-    			 if ('town' in address) { addresString += address.town; }
+					addresString+=',';
+    			if ('town' in address) { addresString += address.town; }
 
-    			if('postcode' in address && address.postcode.length > 2 || 'town' in address && address.town.length > 2){
+    			if('postcode' in address && address.postcode.length > 1 || 'town' in address && address.town.length > 2){
+						// On database there are not records for full postcode search, so we have to remove
+						// last part of full postcode for matching shops near by the area user is looking for
+						var fullPostcode = addresString.split(',');
+						var areaPostcode = fullPostcode[0].split(' ');
+						areaPostcode = areaPostcode[0].substring(0, 4);
+						if (!(parseInt(areaPostcode[3], 10) >= 0 && parseInt(areaPostcode[3], 10) <= 9)) {
+							// Ensure numerical(natural) pattern
+							areaPostcode = areaPostcode.substring(0, 3)
+						}
+						addresString = areaPostcode + ',' + fullPostcode[1];
     				console.log(addresString);
+
     				$http.post($scope.baseURL+'/bookmakers/get_near_bookmakers', { "address":addresString}).
 	    			//$http.post('http://54.194.234.251/index.php/bookmakers/get_near_bookmakers', { "address":addresString,"radius": 2}).
 	    			//$http.post('http://49s.local/index.php/bookmakers/get_near_bookmakers', { "address":addresString,"radius": 6}).
