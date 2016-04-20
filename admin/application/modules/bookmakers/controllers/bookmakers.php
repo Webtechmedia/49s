@@ -196,9 +196,11 @@ class Bookmakers extends CI_Controller
 		 	}
 		}
 
+		$this->bookmakers_model->get_geo();
 		$this->bookmakers_model->remove_flagged();
 		$this->bookmakers_model->setCountryCodesToUK();
 		$this->bookmakers_model->setNullStringAsNull();
+
 	}
 
 	public function setCompanyName(){
