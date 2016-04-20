@@ -156,7 +156,7 @@ class Bookmakers_model extends CI_Model {
 			if($row->B_Lat == null){
 
 
-				$fullurl = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $row->B_Address1 . ",+" . $row->B_Address2 . ",+" . $row->B_Address3 . ",+" . $row->B_Postcode . ",+" . $row->B_CountryCode . "&sensor=true&key=AIzaSyDNvVaZ8Ol0ip7JJsEC7m7SOL3cjP35spI";
+				$fullurl = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $row->B_Address1 . ",+" . $row->B_Address2 . ",+" . $row->B_Address3 . ",+" . $row->B_Postcode . ",+" . $row->B_CountryCode . "&key=AIzaSyBzsQv2CTuKViRA5O6TFiZc03_GlyBbWIw&sensor=true";
 				$fullurl = str_replace(" ", "+",$fullurl);
 
 				echo $row->B_CompanyName.' - '.$fullurl.'<br/>';
