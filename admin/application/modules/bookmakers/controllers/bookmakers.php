@@ -145,7 +145,7 @@ class Bookmakers extends CI_Controller
 		//$config['upload_path'] = './../incomming/bookmakers/';
 		// Relative path seems to be not working
 		$config['upload_path'] = '/var/www/html/admin/uploads_assets/';
-		$config['allowed_types'] = 'xlsx|xls';
+		$config['allowed_types'] = '*';
 		$config['max_size']	= '2000';
 
 		$this->load->library('upload', $config);
@@ -177,7 +177,7 @@ class Bookmakers extends CI_Controller
 
 		//load our new PHPExcel library
 		$this->load->library('excel');
-		$reader= PHPExcel_IOFactory::createReader('Excel2007');
+		$reader= PHPExcel_IOFactory::createReader('Excel5');
 		$reader->setReadDataOnly(true);
 		$excel=$reader->load($file_path);
 
