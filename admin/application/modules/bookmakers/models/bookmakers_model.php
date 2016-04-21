@@ -166,9 +166,9 @@ class Bookmakers_model extends CI_Model {
 					$json_a = json_decode($string, true); //json decoder
 
 
-					if($json_a['status']=='OVER_QUERY_LIMIT'){
+					/*if($json_a['status']=='OVER_QUERY_LIMIT'){
 						exit('OVER_QUERY_LIMIT');
-					}
+					}*/
 
 
 
