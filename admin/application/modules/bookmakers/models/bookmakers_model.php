@@ -201,7 +201,7 @@ class Bookmakers_model extends CI_Model {
 				} catch(Exception $ex ){
 
 				}
-				//usleep(250000);
+				usleep(100000);
 
 			}
 		}
