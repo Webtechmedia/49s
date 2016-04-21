@@ -164,8 +164,11 @@ class Bookmakers_model extends CI_Model {
 
 
 					if($json_a['status']=='OVER_QUERY_LIMIT'){
-						echo "Could not retrieve geolocation for ". $row->B_CompanyName . " - " .  $row->B_Postcode . "<br>"
+						echo "Could not retrieve geolocation for ". $row->B_CompanyName . " - " .  $row->B_Postcode . "<br>";
+					} else {
+					  echo "Geolocation retrieved ". $row->B_CompanyName . " - " .  $row->B_Postcode . "<br>";
 					}
+					usleep(101000);
 
 					if(!is_null($json_a['results'])){
 						foreach($json_a['results'] as $result){
@@ -196,7 +199,6 @@ class Bookmakers_model extends CI_Model {
 				} catch(Exception $ex ){
 
 				}
-				usleep(100000);
 
 			}
 		}
