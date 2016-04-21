@@ -125,8 +125,6 @@ class Bookmakers extends CI_Controller
 		}
 		$data['title'] = 'Bookmakers Import';
 
-
-
 		$this->template->write_view('head', 'common/head',$data);
 		$this->template->write_view('header', 'common/header',$data);
 		$this->template->write_view('content', 'bookmakers/import',$data);
