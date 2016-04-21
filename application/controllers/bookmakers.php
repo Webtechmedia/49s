@@ -53,7 +53,7 @@ class Bookmakers extends MX_Controller
                 $lat = $address_loc->lat; // latitude of centre of bounding circle in degrees
                 $lon = $address_loc->long; // longitude of centre of bounding circle in degrees
                 //$rad = $this->input->post('radius'); // radius of bounding circle in kilometers
-                $rad = 200; // radius of bounding circle in kilometers
+                $rad = 50; // radius of bounding circle in kilometers
 
                 $R = 6378.137;  // earth's mean radius, km
 
