@@ -157,9 +157,13 @@ class Bookmakers extends CI_Controller
 		else
 		{
 			$uploaded_file = array('upload_data' => $this->upload->data());
+			$this->session->set_flashdata('message', 'File has been upload, dumping records into DB..');
 		 	$this->processfile($uploaded_file['upload_data']['full_path']);
-			$this->session->set_flashdata('message', 'File has been imported');
-			redirect('bookmakers/index');
+
+      $this->bookmakers_model->get_geo();
+      $this->bookmakers_model->remove_flagged();
+      $this->bookmakers_model->setCountryCodesToUK();
+      $this->bookmakers_model->setNullStringAsNull();
 		}
 	}
 
@@ -194,11 +198,19 @@ class Bookmakers extends CI_Controller
 		 	}
 		}
 
-		$this->bookmakers_model->get_geo();
-		$this->bookmakers_model->remove_flagged();
-		$this->bookmakers_model->setCountryCodesToUK();
-		$this->bookmakers_model->setNullStringAsNull();
+		$this->session->set_flashdata('message', 'DB updated, quering for geolocations, this task will take some time');
 
+		set_time_limit(0);
+    /* start the forced redirect */
+    header( 'Connection: close' );
+    ob_start ();
+    /* close out the server process, release to the client */
+    header( 'Content-Length: 0' );
+		redirect('bookmakers/index');
+    ob_end_flush();
+    flush();
+    /* end the forced redirect and continue with this script process */
+    ignore_user_abort (true);
 	}
 
 	public function setCompanyName(){

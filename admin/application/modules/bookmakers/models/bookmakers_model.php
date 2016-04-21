@@ -197,12 +197,10 @@ class Bookmakers_model extends CI_Model {
 						$this->db->update('bookmakers');
 					}
 
-
+				  usleep(200000);
 				} catch(Exception $ex ){
 
 				}
-				usleep(100000);
-
 			}
 		}
 	}
