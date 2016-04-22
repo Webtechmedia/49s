@@ -5924,7 +5924,7 @@ FN.Controllers.controller('FNBettingShopController', [
     	$scope.mapResults=true;
     	$scope.searchSection=false;
 
-    	$scope.findBookmakers = function(address) {
+    	$scope.findBookmakers = function(address, flag) {
     		if(angular.isUndefined(address) ){
     			//alert(JSON.stringify(address));
     			$scope.noResults=false;
@@ -5949,9 +5949,12 @@ FN.Controllers.controller('FNBettingShopController', [
 						var fullPostcode = addresString.split(',');
 						var areaPostcode = fullPostcode[0].split(' ');
 						areaPostcode = areaPostcode[0].substring(0, 4);
+						var fourDigitsArea = areaPostcode;
+						if (flag !== true){
 						if (!(parseInt(areaPostcode[3], 10) >= 0 && parseInt(areaPostcode[3], 10) <= 9)) {
 							// Ensure numerical(natural) pattern
 							areaPostcode = areaPostcode.substring(0, 3)
+						}
 						}
 						addresString = areaPostcode + ',' + fullPostcode[1];
     				console.log(addresString);
@@ -5961,66 +5964,83 @@ FN.Controllers.controller('FNBettingShopController', [
 	    			//$http.post('http://49s.local/index.php/bookmakers/get_near_bookmakers', { "address":addresString,"radius": 6}).
 		    			success(function(data, status, headers, config) {
 
+							if (!data.body){
+								$scope.findBookmakers({postcode: fourDigitsArea}, true);
+							} else {
 
 
-		    				$scope.noResults=true;
-		    				$scope.deleteMarkers();
-						 	if ( angular.isArray(data.body)  ) {
-						        $scope.bookmakers = data.body;
-						        if($scope.listResults==true && $scope.mapResults==true){
-						        	$scope.listResults=false;
-						        }
+								$scope.noResults = true;
+								$scope.deleteMarkers();
+								if (angular.isArray(data.body)) {
+									$scope.bookmakers = data.body;
+									if ($scope.listResults == true && $scope.mapResults == true) {
+										$scope.listResults = false;
+									}
 
 
-						        for (var i=0; i<$scope.bookmakers.length; i++) {
+									for (var i = 0; i < $scope.bookmakers.length; i++) {
 
-							        //prep description
-							        prep_description='';
-							        if($scope.bookmakers[i].B_Address1!=null){ prep_description+=$scope.bookmakers[i].B_Address1+'<br/>';}
-							        if($scope.bookmakers[i].B_Address2!=null){ prep_description+=$scope.bookmakers[i].B_Address2+'<br/>';}
-							        if($scope.bookmakers[i].B_Address3!=null){ prep_description+=$scope.bookmakers[i].B_Address3+'<br/>';}
-							        if($scope.bookmakers[i].B_Postcode!=null){ prep_description+=$scope.bookmakers[i].B_Postcode;}
+										//prep description
+										prep_description = '';
+										if ($scope.bookmakers[i].B_Address1 != null) {
+											prep_description += $scope.bookmakers[i].B_Address1 + '<br/>';
+										}
+										if ($scope.bookmakers[i].B_Address2 != null) {
+											prep_description += $scope.bookmakers[i].B_Address2 + '<br/>';
+										}
+										if ($scope.bookmakers[i].B_Address3 != null) {
+											prep_description += $scope.bookmakers[i].B_Address3 + '<br/>';
+										}
+										if ($scope.bookmakers[i].B_Postcode != null) {
+											prep_description += $scope.bookmakers[i].B_Postcode;
+										}
 
-							        //prep address
-							        prep_address='';
-							        if($scope.bookmakers[i].B_Address1!=null){prep_address+=$scope.bookmakers[i].B_Address1+' ';}
-							        if($scope.bookmakers[i].B_Address2!=null){prep_address+=$scope.bookmakers[i].B_Address2+' ';}
-							        if($scope.bookmakers[i].B_Address3!=null){prep_address+=$scope.bookmakers[i].B_Address3}
+										//prep address
+										prep_address = '';
+										if ($scope.bookmakers[i].B_Address1 != null) {
+											prep_address += $scope.bookmakers[i].B_Address1 + ' ';
+										}
+										if ($scope.bookmakers[i].B_Address2 != null) {
+											prep_address += $scope.bookmakers[i].B_Address2 + ' ';
+										}
+										if ($scope.bookmakers[i].B_Address3 != null) {
+											prep_address += $scope.bookmakers[i].B_Address3
+										}
 
-						        	$scope.bookmakerSpots.push({
-					    		    	name : $scope.bookmakers[i].B_CompanyName,
-					    		        desc : prep_description,
-					    		        lat : $scope.bookmakers[i].B_Lat,
-					    		        long : $scope.bookmakers[i].B_Long,
-					    		        address : prep_address,
-					    		        postcode : $scope.bookmakers[i].B_Postcode,
-					    		        link :'Map'
-					    		    });
-					 		    }
-						        //create markers
-					    		for (i = 0; i < $scope.bookmakerSpots.length; i++){
-					    			$scope.createMarker($scope.bookmakerSpots[i]);
-				        		}
-					    		if($scope.bookmakerSpots.length<1){
-					    			$scope.listResults=true;
-				    		        $scope.mapResults=true;
-				    				$scope.noResults=false;
+										$scope.bookmakerSpots.push({
+											name: $scope.bookmakers[i].B_CompanyName,
+											desc: prep_description,
+											lat: $scope.bookmakers[i].B_Lat,
+											long: $scope.bookmakers[i].B_Long,
+											address: prep_address,
+											postcode: $scope.bookmakers[i].B_Postcode,
+											link: 'Map'
+										});
+									}
+									//create markers
+									for (i = 0; i < $scope.bookmakerSpots.length; i++) {
+										$scope.createMarker($scope.bookmakerSpots[i]);
+									}
+									if ($scope.bookmakerSpots.length < 1) {
+										$scope.listResults = true;
+										$scope.mapResults = true;
+										$scope.noResults = false;
 
 
-					    		}
-					    		//centralize map on new search
-						    	$scope.map.setZoom(12);
-						    	if($scope.bookmakerSpots[0] !== undefined && $scope.bookmakerSpots[0].lat !== undefined){
-						    		$scope.map.setCenter( new google.maps.LatLng($scope.bookmakerSpots[0].lat, $scope.bookmakerSpots[0].long));
-						    		$('html,body').animate({scrollTop: $('#scroll-point').offset().top }, "slow");
-						    	}
+									}
+									//centralize map on new search
+									$scope.map.setZoom(12);
+									if ($scope.bookmakerSpots[0] !== undefined && $scope.bookmakerSpots[0].lat !== undefined) {
+										$scope.map.setCenter(new google.maps.LatLng($scope.bookmakerSpots[0].lat, $scope.bookmakerSpots[0].long));
+										$('html,body').animate({scrollTop: $('#scroll-point').offset().top}, "slow");
+									}
 
-						    }else{
-						    	$scope.listResults=true;
-			    		        $scope.mapResults=true;
-			    				$scope.noResults=false;
-						    }
-
+								} else {
+									$scope.listResults = true;
+									$scope.mapResults = true;
+									$scope.noResults = false;
+								}
+							}
 		    			}).
 		    			error(function(data, status, headers, config) {
 		    				console.log('error loading bookmakers');
