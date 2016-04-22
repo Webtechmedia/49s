@@ -155,7 +155,7 @@ class Bookmakers_model extends CI_Model {
 		foreach($this->get_all()  as $row){
 			if($row->B_Lat == null){
 
-				$fullurl = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $row->B_Address1 . ",+" . $row->B_Address2 . ",+" . $row->B_Address3 . ",+" . $row->B_Postcode . ",+" . $row->B_CountryCode . "&key=AIzaSyAjYa60H5ot0DRDVbERYZsuJNrjzv9FRKs&sensor=true";
+				$fullurl = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $row->B_Address1 . ",+" . $row->B_Address2 . ",+" . $row->B_Address3 . ",+" . $row->B_Postcode . ",+" . $row->B_CountryCode . "&key=AIzaSyBZVnTVN3oOeliXMdWF1kMLuT6OuwsvyXs&sensor=true";
 				$fullurl = str_replace(" ", "+",$fullurl);
 
 				try{
@@ -163,11 +163,11 @@ class Bookmakers_model extends CI_Model {
 					$json_a = json_decode($string, true); //json decoder
 
 
-					if($json_a['status']=='OVER_QUERY_LIMIT'){
+					/*if($json_a['status']=='OVER_QUERY_LIMIT'){
 						echo "Could not retrieve geolocation for ". $row->B_CompanyName . " - " .  $row->B_Postcode . "<br>";
 					} else {
 					  echo "Geolocation retrieved ". $row->B_CompanyName . " - " .  $row->B_Postcode . "<br>";
-					}
+					}*/
 					usleep(101000);
 
 					if(!is_null($json_a['results'])){
